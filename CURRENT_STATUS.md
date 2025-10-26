@@ -1,338 +1,127 @@
 # Current Status - French Tutor Landing Page
 
-**Last Updated:** October 25, 2025  
-**Status:** ✅ Fully Functional and Running
+**Last Updated:** October 26, 2025  
+**Running at:** http://localhost:3000
+
+## Recent Update (October 26, 2025)
+
+### Content Updates
+- Hero copy: "French you can prove—for exams, work, and migration"
+- Hero subtitle: "1:1 coaching for adults: speaking-first lessons, a CEFR-aligned roadmap, and tracked gains every 2 weeks to hit DELF/DALF/TEF goals"
+- Hero CTA: "Book a 25-min trial → get your 90-day plan"
+- Added micro-proof strip below hero CTA (Former Director, Alliance Française • Official DELF/DALF & TEF examiner • DALF C2 • 200+ adult learners coached)
+- Updated Benefits to "What I Solve (for serious learners)" with **3 tracks** (Exam & Migration, Career Track, Foundations Track) - Rule of 3
+- 3 exam-focused testimonials - Rule of 3
+- 6 exam/migration-focused FAQs (accordion format)
+- Added ProfileSection with 7 credentials
+- Added HowItWorksSection with **3 steps** (Diagnostic→Roadmap, Talk-First Lessons, Practice & Proof) - Rule of 3
+- Added ResultsSection with **3 outcomes** (A2→B1, DELF B2, TEF Canada) - Rule of 3
+- Added FinalCTASection
+
+### Design Updates
+- Complete color redesign: slate/coral theme (professional, modern)
+- Hero section: 5-column grid (3:2 ratio, text-dominant)
+- Reduced photo size for better balance (max-w-sm)
+- Fixed button visibility: inline styles with explicit hex colors (#f43f5e bg, #ffffff text)
+- Consistent coral/slate theme across all sections
+- **Applied Rule of 3**: Benefits (3 tracks), How It Works (3 steps), Results (3 outcomes), Testimonials (3 stories)
+- Removed CTA buttons from ProfileSection and HowItWorksSection (cleaner flow)
+- **Optimized page flow**: Hero → Benefits (what) → Results+Testimonials (proof) → How It Works (process) → Profile (credentials) → FAQ → Final CTA
+
+### Technical
+- Calendly integration active (https://calendly.com/d/cspz-sps-35k)
+- BenefitsSection converted to Client Component for event handlers
 
 ---
 
-## 🎉 Project Completion Summary
+## Files Created
 
-The French tutor landing page has been successfully implemented and is now running at **http://localhost:3000**
+### `/lib`
+- `types.ts` - TypeScript interfaces (Benefit, Testimonial, FAQ)
+- `data.ts` - Static content (4 benefits, 3 testimonials, 6 FAQs)
+- `theme.ts` - Centralized slate/coral color system
 
----
+### `/components`
+- `HeroSection.tsx` - Client component, 5-column grid (3:2), exam-focused copy, micro-proof strip (credentials badges), inline-styled button
+- `ProfileSection.tsx` - Server component, 7 credentials in 2-column grid, icons for each (no CTA button)
+- `BenefitsSection.tsx` - Client component, 3-column grid (3 tracks: Exam & Migration, Career Track, Foundations Track), coral/slate theme, inline-styled CTA
+- `HowItWorksSection.tsx` - Server component, 3-column grid, 3 steps with numbered badges (no CTA button)
+- `ResultsSection.tsx` - Server component, 3-column grid, 3 real outcomes with checkmarks
+- `TestimonialsSection.tsx` - Server component, 3-column grid, amber stars, coral accents
+- `FAQSection.tsx` - Client component, Radix UI accordion, coral/slate theme
+- `FinalCTASection.tsx` - Client component, centered CTA with Calendly integration
 
-## 📁 Files Created
-
-### Data Layer (`/lib`)
-
-#### `lib/types.ts`
-- **Status:** ✅ Complete
-- **Description:** TypeScript interfaces for type safety
-- **Includes:**
-  - `Benefit` interface (id, icon, title, description, how, outcome)
-  - `Testimonial` interface (id, name, role, headline, text, rating, avatar)
-  - `FAQ` interface (id, question, answer)
-
-#### `lib/data.ts`
-- **Status:** ✅ Complete
-- **Description:** Static content for the landing page
-- **Includes:**
-  - 3 benefits with premium copy (From Silent to Speaking in 30 Days, DELF/DALF Roadmap Zero Guesswork, Tracked Gains at 30/60/90 Days)
-  - 3 testimonials with headlines and detailed success stories (M., A., J.)
-  - 5 FAQs covering common questions
-
-### Components (`/components`)
-
-#### `components/HeroSection.tsx`
-- **Status:** ✅ Complete (Client Component with Calendly Integration)
-- **Features:**
-  - Full-screen hero section with gradient background
-  - Two-column layout (text left, profile image right)
-  - Main heading: "Master French with Personalized Online Tutoring"
-  - Subheading with value proposition
-  - Prominent CTA button "Book Free Trial Lesson"
-  - Large rectangular profile photo (3:4 aspect ratio)
-  - ✅ **Calendly integration active** - Opens popup widget on click
-  - Calendly URL: https://calendly.com/d/cs8c-t6g-233
-- **Styling:** Blue gradient background, grid layout, rounded image with shadow, responsive (stacked on mobile, side-by-side on desktop)
-
-#### `components/BenefitsSection.tsx`
-- **Status:** ✅ Complete
-- **Features:**
-  - Section heading: "Why Learn French With Me" with UVP subheading
-  - 3-column grid (responsive: 1 column on mobile, 3 on desktop)
-  - Lucide icons (MessageCircle, Target, TrendingUp)
-  - Premium copy with time-bound metrics and specific outcomes
-  - Structured content: Title, Description, "How it works:", "What you'll notice:"
-  - Proof strip with 3 success metrics below cards
-  - CTA button: "Book a 25-min trial → map your 90-day plan"
-  - Hover effects on cards
-- **Styling:** White background, centered icons and titles, blue accent labels, bordered proof section
-
-#### `components/TestimonialsSection.tsx`
-- **Status:** ✅ Complete
-- **Features:**
-  - Section heading: "What Students Say"
-  - 3-column grid (responsive: 1 column on mobile, 3 on desktop)
-  - 5-star ratings using Lucide Star icons
-  - Bold headline for each testimonial (e.g., "A2 → B2 in 4 months")
-  - Quote formatting with proper typography
-  - Small rounded profile photos for each reviewer
-  - Student names and roles with profile images
-- **Styling:** Gray background, white cards with shadows, hover effects, circular profile images
-
-#### `components/FAQSection.tsx`
-- **Status:** ✅ Complete (Client Component)
-- **Features:**
-  - Section heading: "Frequently Asked Questions"
-  - Radix UI Accordion component
-  - 5 collapsible FAQ items
-  - Animated chevron icons (rotate on open)
-  - Single item open at a time (collapsible)
-- **Styling:** White background, bordered cards, smooth animations
-
-### App Pages (`/app`)
-
-#### `app/page.tsx`
-- **Status:** ✅ Complete
-- **Description:** Main landing page assembling all sections
-- **Structure:**
-  1. HeroSection
-  2. BenefitsSection
-  3. TestimonialsSection
-  4. FAQSection
-
-#### `app/layout.tsx`
-- **Status:** ✅ Complete
-- **Updates:**
-  - Metadata title: "French Tutor - Personalized Online Lessons"
-  - Metadata description: "Master French with one-on-one tutoring. Book your free trial lesson today."
-  - ✅ **Calendly CSS stylesheet integrated** in head section
-
-#### `app/globals.css`
-- **Status:** ✅ Complete (Fixed for Tailwind v4)
-- **Features:**
-  - Tailwind CSS v4 import syntax
-  - Smooth scrolling behavior
-  - Custom accordion animations (slideDown, slideUp)
+### `/app`
+- `page.tsx` - Main landing page (Hero → Benefits → Results → Testimonials → How It Works → Profile → FAQ → Final CTA)
+- `layout.tsx` - Metadata + Calendly CSS
+- `globals.css` - Tailwind v4 import, text-gradient-coral utility, Radix animations
+- `tailwind.config.ts` - Custom coral (50-900) and slate (50-900) colors, Radix animations
 
 ---
 
-## 🔧 Technical Implementation
-
-### Dependencies Used
-- **Next.js 16.0.0** - App Router with Turbopack
-- **React 19.2.0** - UI library
-- **TypeScript 5** - Type safety
-- **Tailwind CSS 4** - Styling
-- **@radix-ui/react-accordion 1.2.12** - Accessible accordion component
-- **lucide-react 0.548.0** - Icon library
-
-### Key Features
-✅ Fully responsive design (mobile-first)  
-✅ TypeScript for type safety  
-✅ Server Components (page, layout, benefits, testimonials)  
-✅ Client Components (hero with button, FAQ with accordion)  
-✅ Accessible UI with Radix primitives  
-✅ Smooth animations and transitions  
-✅ Modern gradient and shadow effects  
-✅ Clean, professional design
+## Tech Stack
+- Next.js 16.0.0 (App Router, Turbopack)
+- React 19.2.0
+- TypeScript 5
+- Tailwind CSS 4
+- @radix-ui/react-accordion 1.2.12
+- lucide-react 0.548.0
 
 ---
 
-## 🐛 Issues Fixed
-
-### Issue 1: Tailwind CSS v4 Compatibility
-- **Problem:** `@apply` directive not working in Tailwind v4
-- **Solution:** Changed from `@tailwind` directives to `@import "tailwindcss"`
-- **File:** `app/globals.css`
-
-### Issue 2: Event Handler in Server Component
-- **Problem:** `onClick` handler in HeroSection causing "Event handlers cannot be passed to Client Component props" error
-- **Solution:** Added `'use client'` directive to HeroSection
-- **File:** `components/HeroSection.tsx`
-
-### Issue 3: Port Conflict
-- **Problem:** Port 3000 initially in use
-- **Solution:** Next.js automatically used port 3001, then resolved to port 3000
+## Issues Fixed
+1. **Tailwind v4 Compatibility** - Changed `@tailwind` to `@import "tailwindcss"` in globals.css
+2. **Server Component Error (HeroSection)** - Added `'use client'` for onClick handler
+3. **Server Component Error (BenefitsSection)** - Added `'use client'` for event handlers on CTA button
+4. **Button Visibility** - Switched to inline styles with explicit hex colors (#f43f5e bg, #ffffff text)
+5. **Photo Size** - Reduced from max-w-md to max-w-sm for better balance
+6. **Layout Balance** - Changed hero from 2-column to 5-column grid (3:2) for text dominance
+7. **Color Scheme** - Redesigned from green to professional slate/coral theme
+8. **Content Restructure** - Updated all copy to exam-focused messaging (DELF/DALF/TEF)
 
 ---
 
-## 🚀 How to Run
-
-### Development Server
+## How to Run
 ```bash
 cd /Users/myrza/Dev/zhyldyz
 npm run dev
 ```
 
-**Access at:** http://localhost:3000
-
-### Build for Production
-```bash
-npm run build
-npm run start
-```
-
 ---
 
-## 📋 Component Breakdown
+## Design System
 
-### Section 1: Hero Section
-- **Component:** `HeroSection.tsx`
-- **Type:** Client Component (interactive button)
-- **Height:** Full viewport (`min-h-screen`)
-- **Layout:** Two-column grid (text + profile image)
-- **Background:** Gradient from blue-50 to white
-- **Image:** Large rectangular profile photo (3:4 aspect ratio, rounded corners, shadow)
-- **CTA:** Large blue button with hover effect
-
-### Section 2: Benefits
-- **Component:** `BenefitsSection.tsx`
-- **Type:** Server Component
-- **Layout:** 3-column grid (responsive) + proof strip + CTA
-- **Icons:** MessageCircle, Target, TrendingUp from Lucide
-- **Content:** 3 benefit cards with premium copy, time-bound metrics, "How it works" / "What you'll notice" structure, proof bullets, and secondary CTA
-
-### Section 3: Testimonials
-- **Component:** `TestimonialsSection.tsx`
-- **Type:** Server Component
-- **Layout:** 3-column grid (responsive)
-- **Background:** Gray-50
-- **Content:** 3 testimonial cards with 5-star ratings, bold headlines, detailed quotes, and circular profile photos
-
-### Section 4: FAQ
-- **Component:** `FAQSection.tsx`
-- **Type:** Client Component (interactive accordion)
-- **Layout:** Single column, max-width 3xl
-- **Content:** 5 collapsible FAQ items with animated chevrons
-
----
-
-## 🎨 Design System
-
-### Colors
-- **Primary:** Blue-600 (buttons, icons)
-- **Hover:** Blue-700
-- **Background:** White / Gray-50 (alternating sections)
-- **Text:** Gray-900 (headings), Gray-600 (body), Gray-500 (muted)
-- **Accent:** Yellow-400 (star ratings)
+### Colors (Slate + Coral Theme)
+- Primary Text: slate-900/600
+- Primary BG: slate-50/white
+- Accent: coral-500 (#f43f5e)
+- Accent Hover: coral-600 (#e11d48)
+- Accent Light: coral-50/100/200
+- Stars: amber-400
 
 ### Typography
-- **H1:** 4xl → 5xl → 6xl (responsive)
-- **H2:** 3xl → 4xl (section headings)
-- **H3:** xl (card titles)
-- **Body:** base → lg (responsive)
-- **Font:** Geist Sans (default Next.js font)
+- H1: 3xl → 5xl (bold, coral gradient accent)
+- H2: 3xl → 4xl (bold, slate-900)
+- Body: base → lg (slate-600)
+- Font: Geist Sans
 
-### Spacing
-- **Section padding:** py-16 px-4
-- **Container max-width:** 
-  - Hero/FAQ: max-w-3xl / max-w-4xl
-  - Benefits/Testimonials: max-w-6xl
-- **Grid gap:** 6-8
+### Layout
+- Hero: max-w-7xl, 5-column grid (3:2 text:image)
+- Profile: max-w-6xl, 2-column grid (7 credentials)
+- Benefits: max-w-6xl, **3-column grid (3 tracks)** ✓ Rule of 3
+- How It Works: max-w-6xl, **3-column grid (3 steps)** ✓ Rule of 3
+- Results: max-w-6xl, **3-column grid (3 outcomes)** ✓ Rule of 3
+- Testimonials: max-w-6xl, **3-column grid (3 stories)** ✓ Rule of 3
+- FAQ: max-w-3xl, single column accordion (6 items)
+- Final CTA: max-w-4xl, centered
 
-### Responsive Breakpoints
-- **Mobile:** < 768px (1 column)
-- **Desktop:** ≥ 768px (3 columns)
-- **Prefix:** `md:` for desktop styles
-
----
-
-## 🔮 Future Enhancements (Not Yet Implemented)
-
-### ✅ Calendar Integration - COMPLETE
-- **Location:** HeroSection button onClick handler
-- **Implementation:** Calendly popup widget
-- **URL:** https://calendly.com/d/cs8c-t6g-233
-- **Status:** ✅ Fully functional - Opens Calendly booking popup on button click
-
-### Potential Additions
-- [ ] Contact form section
-- [ ] Pricing/packages section
-- [ ] Teacher bio/about section
-- [ ] Photo gallery
-- [ ] Blog/resources section
-- [ ] Email newsletter signup
-- [ ] Multi-language support (French/English toggle)
+### Buttons
+- Background: #f43f5e (coral-500)
+- Hover: #e11d48 (coral-600)
+- Text: #ffffff (white)
+- Styled with inline styles for visibility
 
 ---
 
-## 📊 Performance
-
-### Current State
-- **Build Tool:** Turbopack (fast refresh)
-- **Rendering:** Mostly Server Components (faster initial load)
-- **JavaScript:** Minimal (only for button and accordion)
-- **CSS:** Tailwind v4 (optimized)
-
-### Expected Performance
-- Lighthouse score: 90+
-- First Contentful Paint: < 1.5s
-- Total page size: < 500KB (without images)
-
----
-
-## 🧪 Testing Status
-
-### Manual Testing
-✅ Page loads without errors  
-✅ Hero button click logs to console  
-✅ All sections render correctly  
-✅ FAQ accordion expands/collapses  
-✅ Responsive on mobile and desktop  
-✅ Smooth scrolling works  
-✅ Hover states work  
-
-### Not Yet Tested
-- [ ] Automated unit tests
-- [ ] E2E tests
-- [ ] Accessibility audit
-- [ ] Cross-browser testing
-- [ ] Performance benchmarks
-
----
-
-## 📝 Notes
-
-### Development Environment
-- **Node.js version:** Using base environment
-- **Package manager:** npm
-- **Dev server:** Running on port 3000
-- **Hot reload:** Working with Turbopack
-
-### Known Warnings
-- Next.js workspace root warning (multiple lockfiles detected)
-  - `/Users/myrza/Dev/package-lock.json`
-  - `/Users/myrza/Dev/zhyldyz/package-lock.json`
-  - **Impact:** None, project works correctly
-  - **Fix:** Optional, can set `turbopack.root` in next.config.ts
-
----
-
-## ✅ Project Checklist
-
-- [x] Setup project structure
-- [x] Create TypeScript types
-- [x] Add static data
-- [x] Implement HeroSection
-- [x] Implement BenefitsSection
-- [x] Implement TestimonialsSection
-- [x] Implement FAQSection
-- [x] Assemble page.tsx
-- [x] Update layout metadata
-- [x] Configure Tailwind CSS
-- [x] Fix Tailwind v4 compatibility
-- [x] Fix client component issues
-- [x] Test local development server
-- [x] Verify all sections render
-- [x] Verify interactivity works
-- [x] Integrate Calendly booking system
-
----
-
-## 🎯 Ready for Next Steps
-
-The landing page is now fully functional with working Calendly integration. Ready for:
-
-1. **Content refinement** - Update text, add real testimonials
-2. **Design polish** - Add images, refine colors, adjust spacing
-3. **SEO optimization** - Add meta tags, structured data
-4. **Production deployment** - Deploy to Vercel or other hosting
-5. **Analytics setup** - Add Google Analytics or similar
-6. **A/B testing** - Test different CTAs and layouts
-
----
-
-**Status:** 🚀 **LIVE AND RUNNING** at http://localhost:3000
-
+## Known Warnings
+- Next.js workspace root warning (multiple lockfiles) - no impact on functionality

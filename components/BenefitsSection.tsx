@@ -1,3 +1,5 @@
+'use client';
+
 import { MessageCircle, Target, TrendingUp } from 'lucide-react';
 import { benefits } from '@/lib/data';
 
@@ -9,15 +11,12 @@ const iconMap = {
 
 export default function BenefitsSection() {
   return (
-    <section className="py-16 px-4 bg-white">
+    <section className="py-16 px-4 bg-slate-50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 mb-3">
-            Why Learn French With Me
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-3">
+            What I Solve (for serious learners)
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            French lessons engineered for adult learners: talk more, memorize less, see progress every 2 weeks.
-          </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -26,33 +25,26 @@ export default function BenefitsSection() {
             return (
               <div
                 key={benefit.id}
-                className="relative p-8 rounded-lg border-2 border-primary-200 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white overflow-hidden"
+                className="relative p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 bg-white overflow-hidden group"
               >
-                {/* Green accent bar on top */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-400 to-primary-600"></div>
+                {/* Coral accent bar on top */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-coral-400 to-coral-500 group-hover:h-1.5 transition-all"></div>
                 
                 <div className="flex justify-center mb-4">
-                  <div className="bg-primary-50 p-4 rounded-full">
-                    <Icon className="w-16 h-16 text-primary-600" />
+                  <div className="bg-coral-50 p-4 rounded-full group-hover:bg-coral-100 transition-colors">
+                    <Icon className="w-12 h-12 text-coral-500" />
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
+                <h3 className="text-xl font-bold text-slate-900 mb-3 text-center">
                   {benefit.title}
                 </h3>
-                <p className="text-gray-700 mb-4 leading-relaxed">
+                <p className="text-slate-600 mb-4 leading-relaxed">
                   {benefit.description}
                 </p>
                 <div className="space-y-3">
                   <div>
-                    <p className="text-sm font-semibold text-primary-600 mb-1">How it works:</p>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      {benefit.how}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-primary-600 mb-1">What you&apos;ll notice:</p>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      {benefit.outcome}
+                    <p className="text-sm text-slate-500 leading-relaxed italic">
+                      ({benefit.how})
                     </p>
                   </div>
                 </div>
@@ -61,31 +53,23 @@ export default function BenefitsSection() {
           })}
         </div>
 
-        {/* Proof strip */}
-        <div className="bg-primary-50 rounded-xl p-8 mt-8">
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-sm text-gray-700">
-            <div className="flex items-center gap-2">
-              <span className="text-primary-600 font-semibold text-lg">✓</span>
-              <span>A2 → B1 in 4 months (travel focus)</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-primary-600 font-semibold text-lg">✓</span>
-              <span>Passed DELF B2 speaking: 20/25</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-primary-600 font-semibold text-lg">✓</span>
-              <span>From &apos;translating in my head&apos; to natural small talk in 6 weeks</span>
-            </div>
-          </div>
-        </div>
-
         {/* CTA */}
         <div className="text-center mt-10">
           <a
             href="#hero"
-            className="inline-block bg-primary-600 hover:bg-primary-700 text-white px-10 py-4 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+            className="inline-block px-10 py-4 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+            style={{
+              backgroundColor: '#f43f5e',
+              color: '#ffffff'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#e11d48';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#f43f5e';
+            }}
           >
-            Book a 25-min trial → map your 90-day plan
+            Unsure which track? Book a free call—I&apos;ll map the fastest route to your goal.
           </a>
         </div>
       </div>
