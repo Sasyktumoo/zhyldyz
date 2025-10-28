@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { ArrowRight, Star } from 'lucide-react';
 import { theme } from '@/lib/theme';
 import { getAssetPath } from '@/lib/utils';
+import { useLanguage } from '@/lib/LanguageContext';
 import Button from './Button';
 
 declare global {
@@ -15,6 +16,8 @@ declare global {
 }
 
 export default function HeroSection() {
+  const { t } = useLanguage();
+
   useEffect(() => {
     // Load Calendly widget script
     const script = document.createElement('script');
@@ -54,18 +57,19 @@ export default function HeroSection() {
               className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight"
               style={{ color: theme.colors.text.primary, maxWidth: '500px' }}
             >
-              French you can  <span className="text-gradient-citron">prove</span> for{' '}
-              <span className="text-gradient-citron">exams, work,</span> and <span className="text-gradient-citron">migration</span>
+              {t.hero.title.prefix}
+              <br />
+              <span className="text-gradient-citron">{t.hero.title.highlight}</span>
             </h1>
             <p 
               className="text-base md:text-lg leading-relaxed"
               style={{ color: theme.colors.text.secondary, maxWidth: '500px' }}
             >
-              1:1 coaching for adults: speaking-first lessons, a CEFR-aligned roadmap, and tracked gains every 2 weeks to hit DELF/DALF/TEF goals.
+              {t.hero.subtitle}
             </p>
             <div>
               <Button onClick={handleBookTrial} className="group">
-                Book a 25-min trial → get your 90-day plan
+                {t.hero.cta}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
@@ -74,11 +78,11 @@ export default function HeroSection() {
               className="text-sm flex flex-wrap justify-center md:justify-start gap-2 items-center leading-relaxed"
               style={{ color: theme.colors.text.secondary }}
             >
-              <span className="font-medium">Former Director, Alliance Française</span>
+
               <span style={{ color: theme.colors.citron[400] }}>•</span>
-              <span className="font-medium">Official DELF/DALF & TEF examiner</span>
+              <span className="font-medium">{t.hero.credentials.learners}</span>
               <span style={{ color: theme.colors.citron[400] }}>•</span>
-              <span className="font-medium">200+ adult learners coached</span>
+              <span className="font-medium">{t.hero.credentials.examiner}</span>
             </div>
           </div>
           
@@ -99,7 +103,7 @@ export default function HeroSection() {
               <div className="relative w-[485px] h-[485px] rounded-3xl overflow-visible z-10">
                 <img
                   src={getAssetPath('/images/profile.jpg')}
-                  alt="French tutor profile"
+                  alt={t.hero.altText}
                   className="w-full h-full object-cover object-center rounded-3xl"
                   style={{
                     objectPosition: 'center 40%'
@@ -144,7 +148,7 @@ export default function HeroSection() {
                     className="text-sm font-semibold"
                     style={{ color: theme.colors.text.primary }}
                   >
-                    Google rating - 5/5
+                    {t.hero.googleRating}
                   </p>
                 </div>
               </div>

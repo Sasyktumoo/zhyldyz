@@ -2,10 +2,11 @@
 
 import * as Accordion from '@radix-ui/react-accordion';
 import { ChevronDown } from 'lucide-react';
-import { faqs } from '@/lib/data';
 import { theme } from '@/lib/theme';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export default function FAQSection() {
+  const { t } = useLanguage();
   return (
     <section 
       className="py-16"
@@ -20,13 +21,13 @@ export default function FAQSection() {
           className="text-3xl md:text-4xl font-bold tracking-tight text-center mb-12"
           style={{ color: theme.colors.text.primary }}
         >
-          Frequently Asked Questions
+          {t.faq.title}
         </h2>
         <Accordion.Root type="single" collapsible className="space-y-4">
-          {faqs.map((faq) => (
+          {t.faq.items.map((faq, index) => (
             <Accordion.Item
-              key={faq.id}
-              value={faq.id}
+              key={index}
+              value={`faq-${index}`}
               className="rounded-lg overflow-hidden"
               style={{ 
                 borderWidth: '1px',

@@ -1,9 +1,12 @@
+'use client';
+
 import { Star } from 'lucide-react';
-import { testimonials } from '@/lib/data';
 import { theme } from '@/lib/theme';
 import { getAssetPath } from '@/lib/utils';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export default function TestimonialsSection() {
+  const { t } = useLanguage();
   return (
     <section 
       className="py-16"
@@ -18,12 +21,12 @@ export default function TestimonialsSection() {
           className="text-3xl md:text-4xl font-bold tracking-tight text-center mb-12"
           style={{ color: theme.colors.text.primary }}
         >
-          What Students Say
+          {t.testimonials.title}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((testimonial) => (
+          {t.testimonials.items.map((testimonial, index) => (
             <div
-              key={testimonial.id}
+              key={index}
               className="p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col"
               style={{ 
                 backgroundColor: theme.colors.primary[50],
@@ -32,7 +35,7 @@ export default function TestimonialsSection() {
               }}
             >
               <div className="flex gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
+                {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
                     className="w-5 h-5"
@@ -63,7 +66,7 @@ export default function TestimonialsSection() {
                 }}
               >
                 <img
-                  src={getAssetPath(`/images/review${testimonial.id.split('-')[1]}.png`)}
+                  src={getAssetPath(`/images/review${index + 1}.png`)}
                   alt={testimonial.name}
                   className="w-12 h-12 rounded-full object-cover ring-2"
                   style={{ 

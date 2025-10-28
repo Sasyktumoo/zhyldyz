@@ -2,29 +2,12 @@
 
 import { ClipboardCheck, MessageSquare, TrendingUp } from 'lucide-react';
 import { theme } from '@/lib/theme';
+import { useLanguage } from '@/lib/LanguageContext';
 
-const steps = [
-  {
-    id: 1,
-    icon: ClipboardCheck,
-    title: 'Diagnostic Plan',
-    description: 'Baseline speaking + targeted checklist → CEFR-aligned plan for your exact goal (exam / career / migration).',
-  },
-  {
-    id: 2,
-    icon: MessageSquare,
-    title: 'Talk-First Lessons',
-    description: '~70% you speaking; role-plays from your life; live "say-it-better" loops; micro-drills that fix your errors.',
-  },
-  {
-    id: 3,
-    icon: TrendingUp,
-    title: 'Practice & Proof',
-    description: '5–10 min tasks between lessons, voice-note feedback, and progress checkpoints at 30/60/90 days with before/after audio.',
-  },
-];
+const stepIcons = [ClipboardCheck, MessageSquare, TrendingUp];
 
 export default function HowItWorksSection() {
+  const { t } = useLanguage();
   return (
     <section 
       className="py-16"
@@ -40,16 +23,16 @@ export default function HowItWorksSection() {
             className="text-3xl md:text-4xl font-bold tracking-tight mb-3"
             style={{ color: theme.colors.text.primary }}
           >
-            How Your Training Works
+            {t.howItWorks.title}
           </h2>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {steps.map((step, index) => {
-            const Icon = step.icon;
+          {t.howItWorks.steps.map((step, index) => {
+            const Icon = stepIcons[index];
             return (
               <div
-                key={step.id}
+                key={index}
                 className="relative p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group"
                 style={{ 
                   backgroundColor: theme.colors.primary[50],

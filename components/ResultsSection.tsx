@@ -2,23 +2,10 @@
 
 import { CheckCircle } from 'lucide-react';
 import { theme } from '@/lib/theme';
-
-const results = [
-  {
-    id: 1,
-    text: 'A2 → B1 in ~4 months (travel/daily life).',
-  },
-  {
-    id: 2,
-    text: 'DELF B2 speaking: 20/25 (from 14/25).',
-  },
-  {
-    id: 3,
-    text: 'TEF Canada: target bands met (8–12 weeks typical).',
-  },
-];
+import { useLanguage } from '@/lib/LanguageContext';
 
 export default function ResultsSection() {
+  const { t } = useLanguage();
   return (
     <section 
       className="py-16"
@@ -34,14 +21,14 @@ export default function ResultsSection() {
             className="text-3xl md:text-4xl font-bold tracking-tight mb-3"
             style={{ color: theme.colors.text.primary }}
           >
-            Results & Proof (real outcomes to expect)
+            {t.results.title}
           </h2>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          {results.map((result) => (
+          {t.results.items.map((result, index) => (
             <div
-              key={result.id}
+              key={index}
               className="flex items-start gap-4 p-6 rounded-xl transition-all duration-300"
               style={{ 
                 backgroundColor: theme.colors.background.card,
@@ -76,7 +63,7 @@ export default function ResultsSection() {
             className="text-sm italic"
             style={{ color: theme.colors.text.tertiary }}
           >
-            (Numbers are representative of typical adult learners following the plan.)
+            {t.results.disclaimer}
           </p>
         </div>
       </div>

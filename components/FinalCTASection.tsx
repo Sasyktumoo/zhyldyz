@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { theme } from '@/lib/theme';
+import { useLanguage } from '@/lib/LanguageContext';
 import Button from './Button';
 
 declare global {
@@ -14,6 +15,8 @@ declare global {
 }
 
 export default function FinalCTASection() {
+  const { t } = useLanguage();
+
   useEffect(() => {
     // Load Calendly widget script
     const script = document.createElement('script');
@@ -49,16 +52,16 @@ export default function FinalCTASection() {
           className="text-3xl md:text-4xl font-bold tracking-tight mb-6"
           style={{ color: theme.colors.text.primary }}
         >
-          Book a 25-min trial lesson
+          {t.finalCTA.title}
         </h2>
         <p 
           className="text-lg mb-10 max-w-2xl mx-auto leading-relaxed"
           style={{ color: theme.colors.text.secondary }}
         >
-          Walk away with your 90-day plan, first practice drills, and a clear path to your target score or conversation goal.
+          {t.finalCTA.description}
         </p>
         <Button onClick={handleBookTrial} size="lg" className="group">
-          Book Your Trial Now
+          {t.finalCTA.button}
           <ArrowRight 
             className="w-6 h-6 group-hover:translate-x-1 transition-transform"
             style={{ color: theme.colors.text.white }}

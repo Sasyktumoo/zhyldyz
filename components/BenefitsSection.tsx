@@ -1,17 +1,14 @@
 'use client';
 
 import { MessageCircle, Target, TrendingUp } from 'lucide-react';
-import { benefits } from '@/lib/data';
 import { theme } from '@/lib/theme';
+import { useLanguage } from '@/lib/LanguageContext';
 import Button from './Button';
 
-const iconMap = {
-  MessageCircle,
-  Target,
-  TrendingUp,
-};
+const iconMap = [Target, TrendingUp, MessageCircle];
 
 export default function BenefitsSection() {
+  const { t } = useLanguage();
   return (
     <section 
       className="py-16"
@@ -27,16 +24,16 @@ export default function BenefitsSection() {
             className="text-3xl md:text-4xl font-bold tracking-tight mb-3"
             style={{ color: theme.colors.text.primary }}
           >
-            What I Solve (for serious learners)
+            {t.benefits.title}
           </h2>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {benefits.map((benefit) => {
-            const Icon = iconMap[benefit.icon as keyof typeof iconMap];
+          {t.benefits.items.map((benefit, index) => {
+            const Icon = iconMap[index];
             return (
               <div
-                key={benefit.id}
+                key={index}
                 className="relative p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group"
                 style={{ 
                   backgroundColor: theme.colors.background.card,
@@ -106,7 +103,7 @@ export default function BenefitsSection() {
         {/* CTA */}
         <div className="text-center mt-10">
           <Button href="#hero">
-            Unsure which track? Book a free call—I&apos;ll map the fastest route to your goal.
+            {t.benefits.cta}
           </Button>
         </div>
       </div>
