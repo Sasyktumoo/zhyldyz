@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import { ArrowRight, Star } from 'lucide-react';
 import { theme } from '@/lib/theme';
+import { getAssetPath } from '@/lib/utils';
 import Button from './Button';
 
 declare global {
@@ -97,7 +98,7 @@ export default function HeroSection() {
               {/* Photo container - hardcoded size */}
               <div className="relative w-[485px] h-[485px] rounded-3xl overflow-visible z-10">
                 <img
-                  src="/images/profile.jpg"
+                  src={getAssetPath('/images/profile.jpg')}
                   alt="French tutor profile"
                   className="w-full h-full object-cover object-center rounded-3xl"
                   style={{

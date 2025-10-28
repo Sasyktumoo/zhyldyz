@@ -1,6 +1,7 @@
 import { Star } from 'lucide-react';
 import { testimonials } from '@/lib/data';
 import { theme } from '@/lib/theme';
+import { getAssetPath } from '@/lib/utils';
 
 export default function TestimonialsSection() {
   return (
@@ -62,7 +63,7 @@ export default function TestimonialsSection() {
                 }}
               >
                 <img
-                  src={`/images/review${testimonial.id.split('-')[1]}.png`}
+                  src={getAssetPath(`/images/review${testimonial.id.split('-')[1]}.png`)}
                   alt={testimonial.name}
                   className="w-12 h-12 rounded-full object-cover ring-2"
                   style={{ 
