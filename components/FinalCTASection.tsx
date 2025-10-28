@@ -2,6 +2,8 @@
 
 import { useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { theme } from '@/lib/theme';
+import Button from './Button';
 
 declare global {
   interface Window {
@@ -34,21 +36,34 @@ export default function FinalCTASection() {
   };
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-br from-coral-50 via-white to-slate-50">
+    <section 
+      className="py-20"
+      style={{ 
+        background: theme.colors.background.universal,
+        paddingLeft: theme.spacing.sectionPaddingX,
+        paddingRight: theme.spacing.sectionPaddingX
+      }}
+    >
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-6">
+        <h2 
+          className="text-3xl md:text-4xl font-bold tracking-tight mb-6"
+          style={{ color: theme.colors.text.primary }}
+        >
           Book a 25-min trial lesson
         </h2>
-        <p className="text-lg text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+        <p 
+          className="text-lg mb-10 max-w-2xl mx-auto leading-relaxed"
+          style={{ color: theme.colors.text.secondary }}
+        >
           Walk away with your 90-day plan, first practice drills, and a clear path to your target score or conversation goal.
         </p>
-        <button
-          onClick={handleBookTrial}
-          className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-coral-500 to-coral-600 hover:from-coral-600 hover:to-coral-700 text-white px-10 py-5 rounded-xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 group"
-        >
+        <Button onClick={handleBookTrial} size="lg" className="group">
           Book Your Trial Now
-          <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-        </button>
+          <ArrowRight 
+            className="w-6 h-6 group-hover:translate-x-1 transition-transform"
+            style={{ color: theme.colors.text.white }}
+          />
+        </Button>
       </div>
     </section>
   );

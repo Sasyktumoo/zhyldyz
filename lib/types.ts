@@ -2,6 +2,7 @@ export interface Benefit {
   id: string;
   icon: string;              // Lucide icon name
   title: string;
+  subtitle?: string;         // Optional subtitle (e.g., track details)
   description: string;
   how: string;               // How it works
   outcome: string;           // Expected outcome

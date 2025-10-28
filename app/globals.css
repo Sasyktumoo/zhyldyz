@@ -8,8 +8,8 @@ html {
 /* Hero gradient background - removed, using Tailwind utilities instead */
 
 /* Text gradient for headings */
-.text-gradient-coral {
-  background: linear-gradient(135deg, #f43f5e 0%, #fb7185 100%);
+.text-gradient-citron {
+  background: linear-gradient(135deg, #c5c544 0%, #d0d05c 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

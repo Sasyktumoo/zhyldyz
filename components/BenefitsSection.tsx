@@ -2,6 +2,8 @@
 
 import { MessageCircle, Target, TrendingUp } from 'lucide-react';
 import { benefits } from '@/lib/data';
+import { theme } from '@/lib/theme';
+import Button from './Button';
 
 const iconMap = {
   MessageCircle,
@@ -11,10 +13,20 @@ const iconMap = {
 
 export default function BenefitsSection() {
   return (
-    <section className="py-16 px-4 bg-slate-50">
+    <section 
+      className="py-16"
+      style={{ 
+        background: theme.colors.background.universal,
+        paddingLeft: theme.spacing.sectionPaddingX,
+        paddingRight: theme.spacing.sectionPaddingX
+      }}
+    >
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-3">
+          <h2 
+            className="text-3xl md:text-4xl font-bold tracking-tight mb-3"
+            style={{ color: theme.colors.text.primary }}
+          >
             What I Solve (for serious learners)
           </h2>
         </div>
@@ -25,25 +37,63 @@ export default function BenefitsSection() {
             return (
               <div
                 key={benefit.id}
-                className="relative p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 bg-white overflow-hidden group"
+                className="relative p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group"
+                style={{ 
+                  backgroundColor: theme.colors.background.card,
+                  borderWidth: '1px',
+                  borderColor: theme.colors.border.light
+                }}
               >
                 {/* Coral accent bar on top */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-coral-400 to-coral-500 group-hover:h-1.5 transition-all"></div>
+                <div 
+                  className="absolute top-0 left-0 right-0 h-1 group-hover:h-1.5 transition-all"
+                  style={{ 
+                    background: `linear-gradient(to right, ${theme.colors.citron[400]}, ${theme.colors.citron[500]})` 
+                  }}
+                ></div>
                 
                 <div className="flex justify-center mb-4">
-                  <div className="bg-coral-50 p-4 rounded-full group-hover:bg-coral-100 transition-colors">
-                    <Icon className="w-12 h-12 text-coral-500" />
+                  <div 
+                    className="p-4 rounded-full transition-colors"
+                    style={{ 
+                      backgroundColor: theme.colors.citron[50],
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = theme.colors.citron[100];
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = theme.colors.citron[50];
+                    }}
+                  >
+                    <Icon className="w-12 h-12" style={{ color: theme.colors.citron[500] }} />
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3 text-center">
+                <h3 
+                  className="text-xl font-bold mb-1 text-center"
+                  style={{ color: theme.colors.text.primary }}
+                >
                   {benefit.title}
                 </h3>
-                <p className="text-slate-600 mb-4 leading-relaxed">
+                {benefit.subtitle && (
+                  <p 
+                    className="text-base mb-3 text-center"
+                    style={{ color: theme.colors.text.secondary }}
+                  >
+                    {benefit.subtitle}
+                  </p>
+                )}
+                <p 
+                  className="mb-4 leading-relaxed"
+                  style={{ color: theme.colors.text.secondary }}
+                >
                   {benefit.description}
                 </p>
                 <div className="space-y-3">
                   <div>
-                    <p className="text-sm text-slate-500 leading-relaxed italic">
+                    <p 
+                      className="text-sm leading-relaxed italic"
+                      style={{ color: theme.colors.text.tertiary }}
+                    >
                       ({benefit.how})
                     </p>
                   </div>
@@ -55,22 +105,9 @@ export default function BenefitsSection() {
 
         {/* CTA */}
         <div className="text-center mt-10">
-          <a
-            href="#hero"
-            className="inline-block px-10 py-4 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
-            style={{
-              backgroundColor: '#f43f5e',
-              color: '#ffffff'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#e11d48';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#f43f5e';
-            }}
-          >
+          <Button href="#hero">
             Unsure which track? Book a free call—I&apos;ll map the fastest route to your goal.
-          </a>
+          </Button>
         </div>
       </div>
     </section>

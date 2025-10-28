@@ -1,7 +1,9 @@
 'use client';
 
 import { useEffect } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Star } from 'lucide-react';
+import { theme } from '@/lib/theme';
+import Button from './Button';
 
 declare global {
   interface Window {
@@ -34,55 +36,117 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-coral-50/30 px-6 py-16 md:py-20">
-      <div className="max-w-7xl mx-auto w-full">
+    <section 
+      id="hero" 
+      className="min-h-screen flex items-center justify-center py-16 md:py-20"
+      style={{ 
+        background: theme.colors.background.universal,
+        paddingLeft: theme.spacing.sectionPaddingX,
+        paddingRight: theme.spacing.sectionPaddingX
+      }}
+    >
+      <div className="max-w-6xl mx-auto w-full">
         <div className="grid md:grid-cols-5 gap-12 md:gap-16 items-center">
           {/* Left side - Text content (3 columns) */}
           <div className="md:col-span-3 text-center md:text-left space-y-8">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
-              French you can prove—for{' '}
-              <span className="text-gradient-coral">exams, work, and migration</span>
+            <h1 
+              className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight"
+              style={{ color: theme.colors.text.primary, maxWidth: '500px' }}
+            >
+              French you can  <span className="text-gradient-citron">prove</span> for{' '}
+              <span className="text-gradient-citron">exams, work,</span> and <span className="text-gradient-citron">migration</span>
             </h1>
-            <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-2xl">
+            <p 
+              className="text-base md:text-lg leading-relaxed"
+              style={{ color: theme.colors.text.secondary, maxWidth: '500px' }}
+            >
               1:1 coaching for adults: speaking-first lessons, a CEFR-aligned roadmap, and tracked gains every 2 weeks to hit DELF/DALF/TEF goals.
             </p>
             <div>
-              <button
-                onClick={handleBookTrial}
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-base font-semibold transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 group"
-                style={{
-                  backgroundColor: '#f43f5e',
-                  color: '#ffffff'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#e11d48';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = '#f43f5e';
-                }}
-              >
+              <Button onClick={handleBookTrial} className="group">
                 Book a 25-min trial → get your 90-day plan
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </Button>
             </div>
             {/* Micro-proof strip */}
-            <div className="text-sm text-slate-600 flex flex-wrap justify-center md:justify-start gap-2 items-center leading-relaxed">
+            <div 
+              className="text-sm flex flex-wrap justify-center md:justify-start gap-2 items-center leading-relaxed"
+              style={{ color: theme.colors.text.secondary }}
+            >
               <span className="font-medium">Former Director, Alliance Française</span>
-              <span className="text-coral-400">•</span>
+              <span style={{ color: theme.colors.citron[400] }}>•</span>
               <span className="font-medium">Official DELF/DALF & TEF examiner</span>
-              <span className="text-coral-400">•</span>
+              <span style={{ color: theme.colors.citron[400] }}>•</span>
               <span className="font-medium">200+ adult learners coached</span>
             </div>
           </div>
           
           {/* Right side - Profile image (2 columns) */}
           <div className="md:col-span-2 flex justify-center md:justify-end">
-            <div className="relative w-full max-w-xs md:max-w-sm aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl ring-2 ring-slate-200/50 hover:ring-coral-200 hover:shadow-coral-200/20 transition-all duration-500">
-              <img
-                src="/images/profile.jpg"
-                alt="French tutor profile"
-                className="w-full h-full object-cover"
-              />
+            <div className="relative">
+              {/* Shadow layer - offset to right and down */}
+              <div 
+                className="absolute inset-0 rounded-3xl translate-x-6 translate-y-6"
+                style={{ 
+                  backgroundColor: theme.colors.citron[300],
+                  opacity: 0.8,
+                  zIndex: 0
+                }}
+              ></div>
+              
+              {/* Photo container - hardcoded size */}
+              <div className="relative w-[485px] h-[485px] rounded-3xl overflow-visible z-10">
+                <img
+                  src="/images/profile.jpg"
+                  alt="French tutor profile"
+                  className="w-full h-full object-cover object-center rounded-3xl"
+                  style={{
+                    objectPosition: 'center 40%'
+                  }}
+                />
+                
+                {/* Google Review Badge - positioned to extend outside */}
+                <div 
+                  className="absolute -bottom-6 -right-6 rounded-2xl p-4 flex flex-col items-center gap-2"
+                  style={{ 
+                    backgroundColor: theme.colors.background.card,
+                    borderWidth: '1px',
+                    borderColor: theme.colors.border.light,
+                    boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.3)',
+                    zIndex: 30
+                  }}
+                >
+                  {/* Google Logo */}
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M29.6 16.3636C29.6 15.4182 29.5273 14.8 29.3636 14.1636H16V18.2545H23.5636C23.4182 19.3455 22.7091 21.0182 21.0909 22.1273L21.0691 22.2722L25.2545 25.5273L25.5273 25.5545C28.0727 23.2 29.6 20.1091 29.6 16.3636Z" fill="#4285F4"/>
+                    <path d="M16 29C19.4182 29 22.2545 27.8909 24.2909 25.5545L21.0909 22.1273C20.1455 22.7636 18.9091 23.2182 16 23.2182C12.6727 23.2182 9.87273 20.8636 8.98182 17.7091L8.84364 17.7218L4.50909 21.0909L4.46364 21.2182C6.48182 25.2 10.8727 29 16 29Z" fill="#34A853"/>
+                    <path d="M8.98182 17.7091C8.70909 16.9818 8.54545 16.2 8.54545 15.4C8.54545 14.6 8.70909 13.8182 8.96364 13.0909L8.95636 12.9364L4.56364 9.51636L4.46364 9.56364C3.63636 11.2182 3.18182 13.0545 3.18182 15.4C3.18182 17.7455 3.63636 19.5818 4.46364 21.2364L8.98182 17.7091Z" fill="#FBBC05"/>
+                    <path d="M16 7.58182C19.4727 7.58182 21.8182 9.01818 23.1273 10.2364L25.9818 7.47273C22.2364 4.14545 19.4182 2.8 16 2.8C10.8727 2.8 6.48182 6.6 4.46364 10.5818L8.96364 13.0909C9.87273 9.93636 12.6727 7.58182 16 7.58182Z" fill="#EB4335"/>
+                  </svg>
+                  
+                  {/* 5 Stars */}
+                  <div className="flex gap-0.5">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Star 
+                        key={star} 
+                        className="w-5 h-5" 
+                        style={{ 
+                          fill: theme.colors.accent[500], 
+                          color: theme.colors.accent[500] 
+                        }} 
+                      />
+                    ))}
+                  </div>
+                  
+                  {/* Rating Text */}
+                  <p 
+                    className="text-sm font-semibold"
+                    style={{ color: theme.colors.text.primary }}
+                  >
+                    Google rating - 5/5
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

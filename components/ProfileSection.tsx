@@ -1,4 +1,7 @@
+'use client';
+
 import { Award, BookOpen, Briefcase, Globe } from 'lucide-react';
+import { theme } from '@/lib/theme';
 
 const credentials = [
   {
@@ -35,10 +38,20 @@ const credentials = [
 
 export default function ProfileSection() {
   return (
-    <section className="py-16 px-4 bg-white">
+    <section 
+      className="py-16"
+      style={{ 
+        background: theme.colors.background.universal,
+        paddingLeft: theme.spacing.sectionPaddingX,
+        paddingRight: theme.spacing.sectionPaddingX
+      }}
+    >
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-3">
+          <h2 
+            className="text-3xl md:text-4xl font-bold tracking-tight mb-3"
+            style={{ color: theme.colors.text.primary }}
+          >
             French Tutor Profile
           </h2>
         </div>
@@ -49,12 +62,34 @@ export default function ProfileSection() {
             return (
               <div
                 key={credential.id}
-                className="flex items-start gap-4 p-6 rounded-xl bg-slate-50 border border-slate-200 hover:border-coral-300 hover:shadow-md transition-all duration-300"
+                className="flex items-start gap-4 p-6 rounded-xl transition-all duration-300"
+                style={{ 
+                  backgroundColor: theme.colors.primary[50],
+                  borderWidth: '1px',
+                  borderColor: theme.colors.border.light
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = theme.colors.citron[300];
+                  e.currentTarget.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = theme.colors.border.light;
+                  e.currentTarget.style.boxShadow = '';
+                }}
               >
-                <div className="bg-coral-50 p-3 rounded-lg flex-shrink-0">
-                  <Icon className="w-6 h-6 text-coral-500" />
+                <div 
+                  className="p-3 rounded-lg flex-shrink-0"
+                  style={{ backgroundColor: theme.colors.citron[50] }}
+                >
+                  <Icon 
+                    className="w-6 h-6" 
+                    style={{ color: theme.colors.citron[500] }} 
+                  />
                 </div>
-                <p className="text-slate-700 leading-relaxed pt-1">
+                <p 
+                  className="leading-relaxed pt-1"
+                  style={{ color: theme.colors.text.secondary }}
+                >
                   {credential.text}
                 </p>
               </div>

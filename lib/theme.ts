@@ -12,24 +12,56 @@ export const theme = {
       800: '#1e293b',  // slate dark
       900: '#0f172a',  // slate darkest
     },
-    coral: {
-      50: '#fff1f2',   // coral lightest
-      100: '#ffe4e6',
-      200: '#fecdd3',
-      300: '#fda4af',
-      400: '#fb7185',
-      500: '#f43f5e',  // coral main
-      600: '#e11d48',
-      700: '#be123c',
-      800: '#9f1239',
-      900: '#881337',  // coral darkest
+    citron: {
+      50: '#f9f9e8',   // citron lightest (warmer, more visible)
+      100: '#f3f3cc',
+      200: '#e8e89f',
+      300: '#dada77',
+      400: '#d0d05c',
+      500: '#c5c544',  // citron main (darker, more vibrant)
+      600: '#a8a838',
+      700: '#88882d',
+      800: '#686822',
+      900: '#4a4a18',  // citron darkest
     },
     accent: {
       50: '#fef3c7',   // warm amber
       100: '#fde68a',
       500: '#f59e0b',  // amber accent
       600: '#d97706',
+    },
+    // Background colors for sections
+    background: {
+      // SINGLE universal background for ALL sections
+      universal: '#ffffff',
+      // Cards/boxes background (easily modifiable - change to any color)
+      card: '#ffffff',
+    },
+    // Text colors
+    text: {
+      primary: '#0f172a',      // slate-900
+      secondary: '#475569',    // slate-600
+      tertiary: '#64748b',     // slate-500
+      white: '#ffffff',
+    },
+    // Border colors
+    border: {
+      light: '#e2e8f0',        // slate-200
+      medium: '#cbd5e1',       // slate-300
     }
+  },
+  // Spacing - SINGLE SOURCE OF TRUTH for all section padding
+  spacing: {
+    sectionPaddingX: '15rem',  // 192px - change this ONE value to update ALL sections
+  },
+  // Shadow - solid colored shadow like photo
+  shadow: {
+    offset: {
+      x: '6px',
+      y: '6px',
+    },
+    color: '#000000',  // black - solid visible shadow
+    opacity: 0.8,
   }
 }
 
