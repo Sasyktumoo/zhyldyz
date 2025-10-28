@@ -6,42 +6,39 @@
   "hero": {
     "title": {
       "prefix": "Prove your French",
-      "highlight": "on exams and for migration"
+      "highlight": "for exams and migration"
     },
-    "subtitle": "Official examiner–led 1:1 for adults: talk first, track gains, pass DELF/DALF/TEF.",
+    "subtitle": "Official examiner–led 1:1 for adults.",
+    "bullets": [
+      "Pass DELF/DALF/TEF",
+      "70% speaking, talk-first",
+      "Proof every 2 weeks"
+    ],
     "cta": "Book a 25-min trial → get your 90-day plan",
-    "credentials": {
-      "former": "Former Director, Alliance Française",
-      "examiner": "Official DELF/DALF & TEF examiner",
-      "learners": "300+ adult learners coached"
-    },
-    "googleRating": "Google rating - 5/5",
+    "stats": [
+      "300+ adults coached",
+      "Official DELF/DALF & TEF examiner",
+      "Former Director, Alliance Française"
+    ],
+    "badge": "Zhyldyz — DELF/DALF & TEF Examiner",
+    "googleRating": "4.9★ (78 reviews)",
     "altText": "French tutor profile"
   },
   "benefits": {
-    "title": "What I Solve (for serious learners)",
+    "title": "What You'll Achieve",
     "cta": "Unsure which track? Book a free call—I'll map the fastest route to your goal.",
     "items": [
       {
-        "title": "Exam & Migration Track",
-        "subtitle": "(DELF/DALF/TEF)",
-        "description": "Clear roadmap to target scores with examiner-level guidance.",
-        "how": "Examiner-certified training with focused drills and mock exam conditions.",
-        "outcome": "Hit your DELF/DALF/TEF targets with zero guesswork."
+        "title": "Pass your exam (DELF/DALF/TEF)",
+        "description": "Clear roadmap, examiner-level drills, mock exams with scoring."
       },
       {
-        "title": "Career Track",
-        "subtitle": "(Professional French)",
-        "description": "Real-world communication for work: concise emails, calls, and meetings.",
-        "how": "Built from real francophone work/study experience with role-play scenarios.",
-        "outcome": "Confidently handle workplace French without switching to English."
+        "title": "Qualify for migration (TEF Canada)",
+        "description": "CLB-target plan, pacing drills, templates for writing & orals."
       },
       {
-        "title": "Foundations Track",
-        "subtitle": "(A0 → B1 Fast-Track)",
-        "description": "Speak from lesson one; measurable gains every two weeks.",
-        "how": "70% learner talk-time, micro-drills for error patterns, and pronunciation work baked in.",
-        "outcome": "Hold natural conversations on familiar topics within weeks."
+        "title": "Use French at work",
+        "description": "Emails, calls, interviews—role-plays from your real scenarios."
       }
     ]
   },

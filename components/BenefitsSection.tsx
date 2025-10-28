@@ -41,7 +41,7 @@ export default function BenefitsSection() {
                   borderColor: theme.colors.border.light
                 }}
               >
-                {/* Coral accent bar on top */}
+                {/* Citron accent bar on top */}
                 <div 
                   className="absolute top-0 left-0 right-0 h-1 group-hover:h-1.5 transition-all"
                   style={{ 
@@ -66,35 +66,17 @@ export default function BenefitsSection() {
                   </div>
                 </div>
                 <h3 
-                  className="text-xl font-bold mb-1 text-center"
+                  className="text-xl font-bold mb-4 text-center"
                   style={{ color: theme.colors.text.primary }}
                 >
                   {benefit.title}
                 </h3>
-                {benefit.subtitle && (
-                  <p 
-                    className="text-base mb-3 text-center"
-                    style={{ color: theme.colors.text.secondary }}
-                  >
-                    {benefit.subtitle}
-                  </p>
-                )}
                 <p 
-                  className="mb-4 leading-relaxed"
+                  className="leading-relaxed text-center"
                   style={{ color: theme.colors.text.secondary }}
                 >
                   {benefit.description}
                 </p>
-                <div className="space-y-3">
-                  <div>
-                    <p 
-                      className="text-sm leading-relaxed italic"
-                      style={{ color: theme.colors.text.tertiary }}
-                    >
-                      ({benefit.how})
-                    </p>
-                  </div>
-                </div>
               </div>
             );
           })}

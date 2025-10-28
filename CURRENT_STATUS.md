@@ -3,7 +3,36 @@
 **Last Updated:** October 27, 2025  
 **Running at:** http://localhost:3000
 
-## Recent Update (October 27, 2025)
+## Recent Update (October 28, 2025)
+
+### Copy Polish & Conversion Optimization
+
+**Hero Section Updates:**
+- Headline: Simplified to "Prove your French for exams and migration" (single line with gradient)
+- Subheadline: Tightened to "Official examiner–led 1:1 for adults."
+- Added 3 scannable bullets with check icons (≤7 words each):
+  - Pass DELF/DALF/TEF
+  - 70% speaking, talk-first
+  - Progress you can prove
+- Replaced micro-proof text strip with 3-stat bar featuring icons + divider dots:
+  - 300+ adults coached (Users icon)
+  - Official DELF/DALF & TEF examiner (Award icon)
+  - Former Director, Alliance Française (Building2 icon)
+- Added examiner badge overlay at top-left of photo: "Zhyldyz — DELF/DALF & TEF Examiner"
+- Updated Google rating to "4.9★ (78 reviews)" for credibility
+
+**Benefits Section Updates:**
+- Renamed from "What I Solve (for serious learners)" → "What You'll Achieve" (buyer-focused language)
+- Simplified to 3 clean cards (removed subtitle/how/outcome subsections):
+  1. Pass your exam (DELF/DALF/TEF) — Clear roadmap, examiner-level drills, mock exams with scoring
+  2. Qualify for migration (TEF Canada) — CLB-target plan, pacing drills, templates for writing & orals
+  3. Use French at work — Emails, calls, interviews—role-plays from your real scenarios
+
+**Design Improvements:**
+- Bullets aligned left with headline edge (left-aligned with check icons)
+- 16-20px spacing between bullets, 24-32px above CTA
+- Consistent icon sizing and weight throughout
+- Stats bar uses small icons with bold text for key numbers/roles
 
 [Changes pending user testing and confirmation]
 

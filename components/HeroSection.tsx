@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { ArrowRight, Star } from 'lucide-react';
+import { ArrowRight, Star, Check, Users, Award, Building2 } from 'lucide-react';
 import { theme } from '@/lib/theme';
 import { getAssetPath } from '@/lib/utils';
 import { useLanguage } from '@/lib/LanguageContext';
@@ -57,32 +57,62 @@ export default function HeroSection() {
               className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight"
               style={{ color: theme.colors.text.primary, maxWidth: '500px' }}
             >
-              {t.hero.title.prefix}
-              <br />
+              {t.hero.title.prefix}{' '}
               <span className="text-gradient-citron">{t.hero.title.highlight}</span>
             </h1>
+            
+            {/* Subheadline */}
             <p 
               className="text-base md:text-lg leading-relaxed"
               style={{ color: theme.colors.text.secondary, maxWidth: '500px' }}
             >
               {t.hero.subtitle}
             </p>
+            
+            {/* Three bullets with check icons */}
+            <div className="space-y-4">
+              {t.hero.bullets.map((bullet: string, index: number) => (
+                <div key={index} className="flex items-center gap-3">
+                  <Check 
+                    className="w-5 h-5 flex-shrink-0" 
+                    style={{ color: theme.colors.citron[500] }} 
+                  />
+                  <span 
+                    className="text-base md:text-lg"
+                    style={{ color: theme.colors.text.secondary }}
+                  >
+                    {bullet}
+                  </span>
+                </div>
+              ))}
+            </div>
             <div>
               <Button onClick={handleBookTrial} className="group">
                 {t.hero.cta}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
-            {/* Micro-proof strip */}
+            
+            {/* 3-stat bar */}
             <div 
-              className="text-sm flex flex-wrap justify-center md:justify-start gap-2 items-center leading-relaxed"
+              className="flex flex-wrap justify-center md:justify-start gap-4 items-center text-sm"
               style={{ color: theme.colors.text.secondary }}
             >
+              {/* Stat 1: 300+ adults coached */}
+              <div className="flex items-center gap-2">
+                <Users className="w-4 h-4" style={{ color: theme.colors.citron[500] }} />
+                <span><span className="font-bold">{t.hero.stats[0].split(' ')[0]}</span> {t.hero.stats[0].split(' ').slice(1).join(' ')}</span>
+              </div>
+              
+              <span style={{ color: theme.colors.citron[400] }}>•</span>
+              
 
-              <span style={{ color: theme.colors.citron[400] }}>•</span>
-              <span className="font-medium">{t.hero.credentials.learners}</span>
-              <span style={{ color: theme.colors.citron[400] }}>•</span>
-              <span className="font-medium">{t.hero.credentials.examiner}</span>
+              
+              {/* Stat 3: Former Director */}
+              <div className="flex items-center gap-2">
+                <Building2 className="w-4 h-4" style={{ color: theme.colors.citron[500] }} />
+                <span className="font-bold">{t.hero.stats[2]}</span>
+              </div>
             </div>
           </div>
           
@@ -110,7 +140,27 @@ export default function HeroSection() {
                   }}
                 />
                 
-                {/* Google Review Badge - positioned to extend outside */}
+                {/* Badge overlay - positioned at top left */}
+                <div 
+                  className="absolute -top-4 -left-4 rounded-xl px-4 py-2 flex items-center gap-2"
+                  style={{ 
+                    backgroundColor: theme.colors.background.card,
+                    borderWidth: '2px',
+                    borderColor: theme.colors.citron[500],
+                    boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.3)',
+                    zIndex: 30
+                  }}
+                >
+                  <Award className="w-5 h-5" style={{ color: theme.colors.citron[500] }} />
+                  <p 
+                    className="text-sm font-bold whitespace-nowrap"
+                    style={{ color: theme.colors.text.primary }}
+                  >
+                    {t.hero.badge}
+                  </p>
+                </div>
+                
+                {/* Google Review Badge - positioned to extend outside at bottom right */}
                 <div 
                   className="absolute -bottom-6 -right-6 rounded-2xl p-4 flex flex-col items-center gap-2"
                   style={{ 
