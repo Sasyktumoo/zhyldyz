@@ -5,10 +5,10 @@ export const benefits: Benefit[] = [
     id: 'benefit-1',
     icon: 'Target',
     title: 'Exam & Migration Track',
-    subtitle: '(DELF/DALF/TEF)',
+    subtitle: '(DELF/DALF)',
     description: 'Clear roadmap to target scores with examiner-level guidance.',
     how: 'Examiner-certified training with focused drills and mock exam conditions.',
-    outcome: 'Hit your DELF/DALF/TEF targets with zero guesswork.',
+    outcome: 'Hit your DELF/DALF targets with zero guesswork.',
   },
   {
     id: 'benefit-2',
@@ -61,7 +61,7 @@ export const faqs: FAQ[] = [
   {
     id: 'faq-1',
     question: 'How many lessons per week?',
-    answer: 'Most adults do 2×50-min or 3×25-min. We\'ll match cadence to your deadline (exam date/migration timeline).',
+    answer: 'Most adults do 2×50-min or 3×45-min. We\'ll match cadence to your deadline (exam date/migration timeline).',
   },
   {
     id: 'faq-2',
@@ -76,7 +76,7 @@ export const faqs: FAQ[] = [
   {
     id: 'faq-4',
     question: 'Will we only do speaking?',
-    answer: 'Speaking is the core (70%), but every plan includes listening, reading, writing, and pronunciation—weighted to your goal (DELF/DALF/TEF or workplace needs).',
+    answer: 'Speaking is the core (70%), but every plan includes listening, reading, writing, and pronunciation—weighted to your goal (DELF/DALF or workplace needs).',
   },
   {
     id: 'faq-5',

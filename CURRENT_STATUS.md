@@ -1,9 +1,52 @@
 # Current Status - French Tutor Landing Page
 
-**Last Updated:** October 27, 2025  
+**Last Updated:** October 28, 2025  
 **Running at:** http://localhost:3000
 
-## Recent Update (October 28, 2025)
+## Recent Update (October 28, 2025 - Internationalization)
+
+### Full Internationalization Implementation
+
+**Language System:**
+- Implemented complete i18n system with English and Russian language support
+- Language toggle button in top-right corner (EN/RU switcher)
+- Created `LanguageContext` provider for global language state management
+- All hardcoded text removed and replaced with translation keys
+- Instant language switching across entire site
+
+**Translation Files:**
+- `/locales/en.json` - Complete English translations for all content
+- `/locales/ru.json` - Full Russian translations (professionally translated)
+- Organized by sections: metadata, hero, benefits, testimonials, howItWorks, profile, faq, finalCTA
+- Profile section includes: stats, certificates, experience, outcomes, imagePlaceholder
+- Includes copy polish updates from October 28 (simplified hero, streamlined benefits)
+
+**Components Updated:**
+- All 7 components now use `useLanguage()` hook to access translations
+- `HeroSection.tsx` - Hero title, subtitle, bullets, stats, badge, Google rating
+- `BenefitsSection.tsx` - Title, CTA, 3 benefit cards (simplified structure)
+- `TestimonialsSection.tsx` - Title, 3 testimonial cards (converted to client component)
+- `HowItWorksSection.tsx` - Title, 3 step cards
+- `ProfileSection.tsx` - Title, subtitle, stats (3 items), certificates (3 items), experience section, outcomes with 3 results and disclaimer
+- `FAQSection.tsx` - Title, 6 FAQ items
+- `FinalCTASection.tsx` - Title, description, button text
+
+**Language Toggle Component:**
+- Fixed position in top-right corner
+- Citron theme styling with active state
+- Languages icon from lucide-react
+- Smooth state transitions
+
+**Technical Implementation:**
+- `lib/LanguageContext.tsx` - React Context with language state and translations
+- `components/LanguageToggle.tsx` - Toggle button with EN/RU options
+- `app/layout.tsx` - Wrapped with `LanguageProvider`, includes `LanguageToggle`
+- TypeScript types inferred from `en.json` structure for type safety
+- `tsconfig.json` already configured with `resolveJsonModule: true`
+
+---
+
+## Previous Update (October 28, 2025 - Copy Polish)
 
 ### Copy Polish & Conversion Optimization
 
@@ -11,7 +54,7 @@
 - Headline: Simplified to "Prove your French for exams and migration" (single line with gradient)
 - Subheadline: Tightened to "Official examiner–led 1:1 for adults."
 - Added 3 scannable bullets with check icons (≤7 words each):
-  - Pass DELF/DALF/TEF
+  - Pass DELF/DALF
   - 70% speaking, talk-first
   - Progress you can prove
 - Replaced micro-proof text strip with 3-stat bar featuring icons + divider dots:
@@ -24,7 +67,7 @@
 **Benefits Section Updates:**
 - Renamed from "What I Solve (for serious learners)" → "What You'll Achieve" (buyer-focused language)
 - Simplified to 3 clean cards (removed subtitle/how/outcome subsections):
-  1. Pass your exam (DELF/DALF/TEF) — Clear roadmap, examiner-level drills, mock exams with scoring
+  1. Pass your exam (DELF/DALF) — Clear roadmap, examiner-level drills, mock exams with scoring
   2. Qualify for migration (TEF Canada) — CLB-target plan, pacing drills, templates for writing & orals
   3. Use French at work — Emails, calls, interviews—role-plays from your real scenarios
 
@@ -63,15 +106,14 @@
 
 ### Content Updates
 - Hero copy: "French you can prove—for exams, work, and migration"
-- Hero subtitle: "1:1 coaching for adults: speaking-first lessons, a CEFR-aligned roadmap, and tracked gains every 2 weeks to hit DELF/DALF/TEF goals"
-- Hero CTA: "Book a 25-min trial → get your 90-day plan"
-- Added micro-proof strip below hero CTA (Former Director, Alliance Française • Official DELF/DALF & TEF examiner • DALF C2 • 200+ adult learners coached)
+- Hero subtitle: "1:1 coaching for adults: speaking-first lessons, a CEFR-aligned roadmap, and tracked gains every 2 weeks to hit DELF/DALF goals"
+- Hero CTA: "Book a 45-min trial → get your 90-day plan"
+- Added micro-proof strip below hero CTA (Former Director, Alliance Française • Official DELF/DALF & TEF examiner • DALF C2 • 300+ adult learners coached)
 - Updated Benefits to "What I Solve (for serious learners)" with **3 tracks** (Exam & Migration, Career Track, Foundations Track) - Rule of 3
 - 3 exam-focused testimonials - Rule of 3
 - 6 exam/migration-focused FAQs (accordion format)
-- Added ProfileSection with 7 credentials
+- Added ProfileSection with stats, certificates, experience, and student outcomes
 - Added HowItWorksSection with **3 steps** (Diagnostic Plan, Talk-First Lessons, Practice & Proof) - Rule of 3, no numbered badges, one-line titles, balanced text lengths
-- Added ResultsSection with **3 outcomes** (A2→B1, DELF B2, TEF Canada) - Rule of 3
 - Added FinalCTASection
 
 ### Design Updates
@@ -80,9 +122,9 @@
 - Reduced photo size for better balance (max-w-sm)
 - Fixed button visibility: inline styles with explicit citron colors (#c5c544 bg, #ffffff text)
 - Consistent citron/slate theme across all sections
-- **Applied Rule of 3**: Benefits (3 tracks), How It Works (3 steps), Results (3 outcomes), Testimonials (3 stories)
+- **Applied Rule of 3**: Benefits (3 tracks), How It Works (3 steps), Testimonials (3 stories), Profile stats (3 items), Profile certificates (3 items), Profile outcomes (3 results)
 - Removed CTA buttons from ProfileSection and HowItWorksSection (cleaner flow)
-- **Optimized page flow**: Hero → Benefits (what) → Results+Testimonials (proof) → How It Works (process) → Profile (credentials) → FAQ → Final CTA
+- **Optimized page flow**: Hero → Benefits (what) → Testimonials (proof) → How It Works (process) → Profile (credentials + student outcomes) → FAQ → Final CTA
 - **Hero photo enhancements**: rounded corners (rounded-3xl), citron curved 3-line element using theme colors (upper left, flower-like with curved top/bottom and straight middle), Google review badge overlay (extends 1/4 outside photo grid at bottom-right), BLUE shadow behind photo for visibility testing (opacity-60, blur-3xl)
 
 ### Technical
@@ -93,24 +135,30 @@
 
 ## Files Created
 
+### `/locales` (Internationalization)
+- `en.json` - Complete English translations for all site content (metadata, hero, benefits, testimonials, howItWorks, profile, faq, finalCTA)
+- `ru.json` - Full Russian translations for all site content
+- Profile section includes detailed translations: stats (3 items), certificates (3 items with badges), experience details, student outcomes (3 results + disclaimer)
+
 ### `/lib`
 - `types.ts` - TypeScript interfaces (Benefit, Testimonial, FAQ)
-- `data.ts` - Static content (4 benefits, 3 testimonials, 6 FAQs)
+- `data.ts` - Static content (4 benefits, 3 testimonials, 6 FAQs) - **deprecated, now using translation files**
 - `theme.ts` - **Centralized theme system** with citron/slate colors, backgrounds, text colors, borders, and gradients
+- `LanguageContext.tsx` - React Context provider for language state management and translations
 
-### `/components` (All use theme.ts for citron colors)
-- `HeroSection.tsx` - Client component, 5-column grid (3:2), theme-based gradient background, citron-styled button, Google review badge with theme colors
-- `ProfileSection.tsx` - Client component, 7 credentials, theme-based backgrounds/borders, citron hover effects
-- `BenefitsSection.tsx` - Client component, 3-column grid (3 tracks), theme-based styling, citron CTA button
+### `/components` (All use theme.ts for citron colors + translations from LanguageContext)
+- `LanguageToggle.tsx` - Language switcher component (EN/RU) in top-right corner
+- `HeroSection.tsx` - Client component, 5-column grid (3:2), theme-based gradient background, citron-styled button, Google review badge, examiner badge, 3 bullets, 3-stat bar
+- `ProfileSection.tsx` - Client component, fully internationalized with 3 stats, 3 certificates with image placeholders, experience section, student outcomes banner with 3 results, theme-based backgrounds/borders, citron hover effects
+- `BenefitsSection.tsx` - Client component, 3-column grid (3 simplified cards), theme-based styling, citron CTA button
 - `HowItWorksSection.tsx` - Client component, 3-column grid (3 steps), citron backgrounds/icons
-- `ResultsSection.tsx` - Client component, 3-column grid (3 outcomes), citron checkmarks/borders
-- `TestimonialsSection.tsx` - Server component, 3-column grid, citron stars/accents
+- `TestimonialsSection.tsx` - Client component, 3-column grid, citron stars/accents
 - `FAQSection.tsx` - Client component, Radix UI accordion, citron colors throughout
 - `FinalCTASection.tsx` - Client component, centered CTA with citron gradient button, Calendly integration
 
 ### `/app`
-- `page.tsx` - Main landing page (Hero → Benefits → Results → Testimonials → How It Works → Profile → FAQ → Final CTA)
-- `layout.tsx` - Metadata + Calendly CSS
+- `page.tsx` - Main landing page (Hero → Benefits → Testimonials → How It Works → Profile → FAQ → Final CTA)
+- `layout.tsx` - Metadata + Calendly CSS + LanguageProvider wrapper + LanguageToggle
 - `globals.css` - Tailwind v4 import, text-gradient-citron utility, Radix animations
 - `tailwind.config.ts` - Custom citron (50-900) and slate (50-900) colors, Radix animations
 
@@ -134,10 +182,13 @@
 5. **Photo Size** - Reduced from max-w-md to max-w-sm for better balance
 6. **Layout Balance** - Changed hero from 2-column to 5-column grid (3:2) for text dominance
 7. **Color Scheme** - Redesigned from green to professional slate/coral theme
-8. **Content Restructure** - Updated all copy to exam-focused messaging (DELF/DALF/TEF)
+8. **Content Restructure** - Updated all copy to exam-focused messaging (DELF/DALF)
 9. **Theme Architecture (Oct 27)** - Centralized all colors to `theme.ts`; eliminated hardcoded Tailwind color classes
 10. **Inconsistent Backgrounds (Oct 27)** - Standardized all section backgrounds to use `theme.colors.background.*`
 11. **Button Visibility in Calendly popup (Oct 27)** - All buttons now explicitly use `theme.colors.text.white` for text color
+12. **Hardcoded Text (Oct 28)** - Removed all hardcoded text; implemented full i18n system with EN/RU translations
+13. **TestimonialsSection Client Component (Oct 28)** - Converted to client component for language context access
+14. **ProfileSection Hardcoded Content (Oct 28)** - Internationalized all ProfileSection content: stats, certificates, experience details, student outcomes with full EN/RU translations
 
 ---
 
@@ -149,35 +200,56 @@ npm run dev
 
 ---
 
-## Design System
+## How to Change Theme Colors
+
+**To change the ENTIRE site color scheme, edit ONLY these 2 files:**
+
+### 1. `/lib/theme.ts` - ALL color palettes
+- **primary[50-900]**: Main color palette (text, borders, backgrounds)
+- **citron[50-900]**: Accent colors (buttons, icons, badges, borders, hover effects)
+- **accent[50-600]**: Star ratings only
+- **background.universal**: All section backgrounds
+- **text.primary/secondary/tertiary**: All text colors
+- **border.light/medium**: All borders
+
+### 2. `/app/globals.css` - Text gradient only
+- `.text-gradient-citron`: Hero section title highlight gradient
+- Uses 2 colors from citron palette (500 and 400)
+
+**That's it.** Change colors in these 2 files and the entire site updates automatically.
+
+---
+
+## Current Design System
 
 ### Colors (All from `lib/theme.ts`)
-**Primary Colors (Slate):**
-- `theme.colors.primary[50-900]` - Slate shades (#f8fafc → #0f172a)
+**Primary Colors (Deep Navy / Ink Navy):**
+- `theme.colors.primary[50-900]` - Navy shades (#f5f6f7 → #2B2C35)
+- Darkest: `primary[900]` (#2B2C35) - ink navy
 
-**Accent Colors (Citron):**
-- `theme.colors.citron[50-900]` - Citron/light chartreuse shades (#f9f9e8 → #4a4a18)
-- Main: `citron[500]` (#c5c544), Hover: `citron[600]` (#a8a838)
+**Accent Colors (Navy Accent for buttons/icons/badges):**
+- `theme.colors.citron[50-900]` - Navy accent shades (#e8edf4 → #161c24)
+- Main: `citron[500]` (#3d5170), Hover: `citron[600]` (#2f4059)
 
-**Accent Colors (Amber):**
+**Accent Colors (Amber for star ratings):**
 - `theme.colors.accent[50-600]` - Amber for stars (#fef3c7 → #d97706)
 
 **Background Colors:**
-- `theme.colors.background.primary` - Citron-50 (#f9f9e8) - consistent across ALL sections
-- `theme.colors.background.secondary` - Same as primary (#f9f9e8) - single source of truth
-- `theme.colors.background.gradient.hero` - Hero gradient (citron-tinted)
-- `theme.colors.background.gradient.cta` - CTA gradient (citron-tinted)
-- **Changing theme.ts background color updates ALL sections automatically**
+- `theme.colors.background.universal` - White (#ffffff) - consistent across ALL sections
+- `theme.colors.background.card` - White (#ffffff)
 
 **Text Colors:**
-- `theme.colors.text.primary` - Slate-900 (#0f172a)
-- `theme.colors.text.secondary` - Slate-600 (#475569)
-- `theme.colors.text.tertiary` - Slate-500 (#64748b)
+- `theme.colors.text.primary` - Ink navy (#2B2C35)
+- `theme.colors.text.secondary` - Navy-600 (#454d5e)
+- `theme.colors.text.tertiary` - Navy-500 (#5a6475)
 - `theme.colors.text.white` - White (#ffffff)
 
 **Border Colors:**
-- `theme.colors.border.light` - Slate-200 (#e2e8f0)
-- `theme.colors.border.medium` - Slate-300 (#cbd5e1)
+- `theme.colors.border.light` - Navy-100 (#e8eaed)
+- `theme.colors.border.medium` - Navy-200 (#d1d5db)
+
+**Text Gradient (from `globals.css`):**
+- `.text-gradient-citron` - Navy gradient (#3d5170 → #5a6f8f)
 
 ### Typography
 - H1: 3xl → 5xl (bold, citron gradient accent)
@@ -186,11 +258,10 @@ npm run dev
 - Font: Geist Sans
 
 ### Layout
-- Hero: max-w-6xl (matches other sections), px-4 padding, 5-column grid (3:2 text:image), square photo
-- Profile: max-w-6xl, 2-column grid (7 credentials)
-- Benefits: max-w-6xl, **3-column grid (3 tracks)** ✓ Rule of 3
+- Hero: max-w-6xl (matches other sections), px-4 padding, 5-column grid (3:2 text:image), square photo with examiner badge overlay
+- Profile: max-w-7xl, includes stats row (3 items), certificates grid (3 cards), experience section, student outcomes banner (3 results) ✓ Rule of 3
+- Benefits: max-w-6xl, **3-column grid (3 simplified cards)** ✓ Rule of 3
 - How It Works: max-w-6xl, **3-column grid (3 steps)** ✓ Rule of 3
-- Results: max-w-6xl, **3-column grid (3 outcomes)** ✓ Rule of 3
 - Testimonials: max-w-6xl, **3-column grid (3 stories)** ✓ Rule of 3
 - FAQ: max-w-3xl, single column accordion (6 items)
 - Final CTA: max-w-4xl, centered

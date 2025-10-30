@@ -10,11 +10,11 @@
     },
     "subtitle": "Official examiner–led 1:1 for adults.",
     "bullets": [
-      "Pass DELF/DALF/TEF",
+      "Pass DELF/DALF",
       "70% speaking, talk-first",
       "Proof every 2 weeks"
     ],
-    "cta": "Book a 25-min trial → get your 90-day plan",
+    "cta": "Book a 45-min trial → get your 90-day plan",
     "stats": [
       "300+ adults coached",
       "Official DELF/DALF & TEF examiner",
@@ -29,7 +29,7 @@
     "cta": "Unsure which track? Book a free call—I'll map the fastest route to your goal.",
     "items": [
       {
-        "title": "Pass your exam (DELF/DALF/TEF)",
+        "title": "Pass your exam (DELF/DALF)",
         "description": "Clear roadmap, examiner-level drills, mock exams with scoring."
       },
       {
@@ -47,19 +47,19 @@
     "items": [
       {
         "name": "M.",
-        "role": "university student",
+        "role": "master's student in France",
         "headline": "A2 → B2 in four months",
         "text": "Started at A2; four months later I passed the exam and can argue my point at B2. The talk-first lessons and weekly writing briefs finally made French stick."
       },
       {
         "name": "A.",
-        "role": "beginner",
+        "role": "graduate student in USA",
         "headline": "From anxious to fluent conversations",
         "text": "I always froze. With role-plays and \"say-it-better\" loops, the fear disappeared. I now handle calls at work without switching to English."
       },
       {
         "name": "J.",
-        "role": "software engineer",
+        "role": "Cambridge student",
         "headline": "TEF Canada: targets achieved",
         "text": "Clear templates, pacing drills, and constant feedback. Hit my CLB targets and moved forward with my application."
       }
@@ -84,14 +84,66 @@
   },
   "profile": {
     "title": "Certified Expertise. Proven Results.",
-    "subtitle": "Official examiner credentials with measurable student outcomes"
+    "subtitle": "Official examiner credentials with measurable student outcomes",
+    "stats": [
+      {
+        "number": "300+",
+        "label": "Adult Learners"
+      },
+      {
+        "number": "10+",
+        "label": "Years Experience"
+      },
+      {
+        "number": "3",
+        "label": "Official Certifications"
+      }
+    ],
+    "certificates": [
+      {
+        "id": "delf-dalf",
+        "title": "DELF-DALF Examiner",
+        "subtitle": "Ministry of Education, France",
+        "year": "2013, renewed 2021",
+        "badge": "OFFICIAL EXAMINER"
+      },
+      {
+        "id": "tef",
+        "title": "TEF Examiner",
+        "subtitle": "Certified Corrector",
+        "year": "2021",
+        "badge": "OFFICIAL EXAMINER"
+      },
+      {
+        "id": "dalf-c2",
+        "title": "DALF C2",
+        "subtitle": "Ministry of Education, France",
+        "year": "Certified",
+        "badge": "C2 CERTIFIED"
+      }
+    ],
+    "experience": {
+      "title": "Former Director, Alliance Française Bishkek",
+      "description": "Leadership role (2015) in francophone education standards and network",
+      "detail": "10+ years teaching at universities, international schools, and Alliance Française"
+    },
+    "outcomes": {
+      "title": "Real Student Outcomes",
+      "results": [
+        "A2 → B1 in 4 months",
+        "DELF B2: 14/25 → 20/25",
+        "TEF targets in 8-12 weeks"
+      ],
+      "disclaimer": "Typical adult learner outcomes following the complete program"
+    },
+    "imagePlaceholder": "Certificate Image Placeholder"
   },
   "faq": {
     "title": "Frequently Asked Questions",
     "items": [
       {
         "question": "How many lessons per week?",
-        "answer": "Most adults do 2×50-min or 3×25-min. We'll match cadence to your deadline (exam date/migration timeline)."
+        "answer": "Typically 3×60-min lessons per week, but the schedule can be adjusted based on your availability and goals. We'll finalize the best cadence during your trial lesson."
       },
       {
         "question": "Do you provide materials?",
@@ -103,11 +155,11 @@
       },
       {
         "question": "Will we only do speaking?",
-        "answer": "Speaking is the core (70%), but every plan includes listening, reading, writing, and pronunciation—weighted to your goal (DELF/DALF/TEF or workplace needs)."
+        "answer": "Speaking is the core (70%), but every plan includes listening, reading, writing, and pronunciation—weighted to your goal (DELF/DALF or workplace needs)."
       },
       {
         "question": "Do you teach groups?",
-        "answer": "Yes. Small groups for exam tracks; 1:1 remains the fastest path for tight deadlines."
+        "answer": "Yes, group sessions are available. We'll discuss the best format for your goals during the trial lesson."
       },
       {
         "question": "What's your background?",
@@ -116,7 +168,7 @@
     ]
   },
   "finalCTA": {
-    "title": "Book a 25-min trial lesson",
+    "title": "Book a 45-min trial lesson",
     "description": "Walk away with your 90-day plan, first practice drills, and a clear path to your target score or conversation goal.",
     "button": "Book Your Trial Now"
   }

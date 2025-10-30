@@ -8,48 +8,17 @@ export default function ProfileSection() {
   const { t } = useLanguage();
 
   // Main certifications - these will have image placeholders
-  const certificates = [
-    {
-      id: 'delf-dalf',
-      title: 'DELF-DALF Examiner',
-      subtitle: 'Ministry of Education, France',
-      year: '2013, renewed 2021',
-      imagePath: '/certificates/delf-dalf-examiner.jpg', // User will replace this
-      featured: true,
-      badge: 'OFFICIAL EXAMINER'
-    },
-    {
-      id: 'tef',
-      title: 'TEF Examiner',
-      subtitle: 'Certified Corrector',
-      year: '2021',
-      imagePath: '/certificates/tef-examiner.jpg', // User will replace this
-      featured: true,
-      badge: 'OFFICIAL EXAMINER'
-    },
-    {
-      id: 'dalf-c2',
-      title: 'DALF C2',
-      subtitle: 'Ministry of Education, France',
-      year: 'Certified',
-      imagePath: '/certificates/dalf-c2.jpg', // User will replace this
-      featured: true,
-      badge: 'C2 CERTIFIED'
-    },
-  ];
+  const certificates = t.profile.certificates.map((cert) => ({
+    ...cert,
+    imagePath: `/certificates/${cert.id}.jpg`,
+    featured: true,
+  }));
 
   // Stats with real numbers
   const stats = [
-    { icon: Users, number: '200+', label: 'Adult Learners' },
-    { icon: Calendar, number: '10+', label: 'Years Experience' },
-    { icon: GraduationCap, number: '3', label: 'Official Certifications' },
-  ];
-
-  // Quick wins - student results
-  const results = [
-    'A2 → B1 in 4 months',
-    'DELF B2: 14/25 → 20/25',
-    'TEF targets in 8-12 weeks',
+    { icon: Users, ...t.profile.stats[0] },
+    { icon: Calendar, ...t.profile.stats[1] },
+    { icon: GraduationCap, ...t.profile.stats[2] },
   ];
 
   return (
@@ -118,39 +87,45 @@ export default function ProfileSection() {
               className="group relative rounded-2xl overflow-hidden transition-all duration-300"
               style={{ 
                 backgroundColor: theme.colors.background.card,
-                borderWidth: '3px',
-                borderColor: cert.featured ? theme.colors.citron[400] : theme.colors.border.light,
+                borderWidth: '1px',
+                borderColor: theme.colors.border.light,
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-8px)';
-                e.currentTarget.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.15)';
+                e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.1)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '';
+                e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.05)';
               }}
             >
-              {/* Certificate Image Placeholder */}
+              {/* Certificate Image */}
               <div 
                 className="relative w-full aspect-[4/3] overflow-hidden"
-                style={{ backgroundColor: theme.colors.primary[100] }}
+                style={{ backgroundColor: theme.colors.primary[50] }}
               >
-                {/* Placeholder for actual certificate image */}
+                <img
+                  src={cert.imagePath}
+                  alt={cert.title}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    // Show placeholder if image fails to load
+                    const target = e.currentTarget;
+                    target.style.display = 'none';
+                    const placeholder = target.nextElementSibling as HTMLElement;
+                    if (placeholder) placeholder.style.display = 'flex';
+                  }}
+                />
+                {/* Fallback placeholder - only shown if image fails to load */}
                 <div 
-                  className="w-full h-full flex items-center justify-center"
+                  className="w-full h-full absolute inset-0 flex items-center justify-center text-center p-8"
                   style={{ 
-                    backgroundImage: `url(${cert.imagePath})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                    display: 'none',
                   }}
                 >
-                  {/* Fallback if no image */}
-                  <div 
-                    className="text-center p-8"
-                    style={{ 
-                      backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                    }}
-                  >
+                  <div>
                     <Award 
                       className="w-16 h-16 mx-auto mb-3" 
                       style={{ color: theme.colors.citron[400] }} 
@@ -159,38 +134,28 @@ export default function ProfileSection() {
                       className="text-xs font-medium"
                       style={{ color: theme.colors.text.tertiary }}
                     >
-                      Certificate Image Placeholder
+                      {t.profile.imagePlaceholder}
                       <br />
                       <span className="text-xs">Replace: {cert.imagePath}</span>
                     </p>
                   </div>
                 </div>
+              </div>
 
-                {/* Badge Overlay */}
+              {/* Certificate Info */}
+              <div className="p-6">
+                {/* Badge moved here */}
                 {cert.badge && (
                   <div 
-                    className="absolute top-4 right-4 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide"
+                    className="inline-block px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide mb-3"
                     style={{ 
                       backgroundColor: theme.colors.citron[500],
                       color: theme.colors.text.white,
-                      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
                     }}
                   >
                     {cert.badge}
                   </div>
                 )}
-
-                {/* Hover Overlay - darkens image on hover */}
-                <div 
-                  className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
-                  style={{ 
-                    background: 'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 100%)',
-                  }}
-                />
-              </div>
-
-              {/* Certificate Info */}
-              <div className="p-6">
                 <h3 
                   className="text-xl font-bold mb-2"
                   style={{ color: theme.colors.text.primary }}
@@ -238,19 +203,19 @@ export default function ProfileSection() {
                 className="text-2xl font-bold mb-2"
                 style={{ color: theme.colors.text.primary }}
               >
-                Former Director, Alliance Française Bishkek
+                {t.profile.experience.title}
               </h3>
               <p 
                 className="text-base mb-3"
                 style={{ color: theme.colors.text.secondary }}
               >
-                Leadership role (2015) in francophone education standards and network
+                {t.profile.experience.description}
               </p>
               <div 
                 className="text-sm"
                 style={{ color: theme.colors.text.tertiary }}
               >
-                10+ years teaching at universities, international schools, and Alliance Française
+                {t.profile.experience.detail}
               </div>
             </div>
           </div>
@@ -269,10 +234,10 @@ export default function ProfileSection() {
             className="text-2xl font-bold mb-6"
             style={{ color: theme.colors.text.primary }}
           >
-            Real Student Outcomes
+            {t.profile.outcomes.title}
           </h3>
           <div className="flex flex-wrap justify-center gap-6">
-            {results.map((result, index) => (
+            {t.profile.outcomes.results.map((result, index) => (
               <div
                 key={index}
                 className="flex items-center gap-3 px-6 py-3 rounded-xl"
@@ -299,7 +264,7 @@ export default function ProfileSection() {
             className="text-xs italic mt-4"
             style={{ color: theme.colors.text.tertiary }}
           >
-            Typical adult learner outcomes following the complete program
+            {t.profile.outcomes.disclaimer}
           </p>
         </div>
       </div>

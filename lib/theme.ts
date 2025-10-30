@@ -1,28 +1,28 @@
 export const theme = {
   colors: {
     primary: {
-      50: '#f8fafc',   // slate lightest
-      100: '#f1f5f9',
-      200: '#e2e8f0',
-      300: '#cbd5e1',
-      400: '#94a3b8',
-      500: '#64748b',  // slate main
-      600: '#475569',
-      700: '#334155',
-      800: '#1e293b',  // slate dark
-      900: '#0f172a',  // slate darkest
+      50: '#f5f6f7',   // navy lightest (almost white with blue tint)
+      100: '#e8eaed',
+      200: '#d1d5db',
+      300: '#b4b9c2',
+      400: '#8a92a0',
+      500: '#5a6475',  // navy main
+      600: '#454d5e',
+      700: '#363d4d',
+      800: '#2f353f',  // navy dark
+      900: '#2B2C35',  // ink navy darkest
     },
     citron: {
-      50: '#f9f9e8',   // citron lightest (warmer, more visible)
-      100: '#f3f3cc',
-      200: '#e8e89f',
-      300: '#dada77',
-      400: '#d0d05c',
-      500: '#c5c544',  // citron main (darker, more vibrant)
-      600: '#a8a838',
-      700: '#88882d',
-      800: '#686822',
-      900: '#4a4a18',  // citron darkest
+      50: '#e8edf4',   // navy accent lightest
+      100: '#d1d9e6',
+      200: '#a3b3cd',
+      300: '#7589ab',
+      400: '#5a6f8f',
+      500: '#3d5170',  // navy accent main
+      600: '#2f4059',
+      700: '#253142',
+      800: '#1d2632',
+      900: '#161c24',  // navy accent darkest
     },
     accent: {
       50: '#fef3c7',   // warm amber
@@ -39,15 +39,15 @@ export const theme = {
     },
     // Text colors
     text: {
-      primary: '#0f172a',      // slate-900
-      secondary: '#475569',    // slate-600
-      tertiary: '#64748b',     // slate-500
+      primary: '#2B2C35',      // ink navy darkest
+      secondary: '#454d5e',    // navy-600
+      tertiary: '#5a6475',     // navy-500
       white: '#ffffff',
     },
     // Border colors
     border: {
-      light: '#e2e8f0',        // slate-200
-      medium: '#cbd5e1',       // slate-300
+      light: '#e8eaed',        // navy-100
+      medium: '#d1d5db',       // navy-200
     }
   },
   // Spacing - SINGLE SOURCE OF TRUTH for all section padding
