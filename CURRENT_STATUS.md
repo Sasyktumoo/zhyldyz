@@ -1,9 +1,26 @@
 # Current Status - French Tutor Landing Page
 
-**Last Updated:** October 28, 2025  
+**Last Updated:** October 30, 2025  
 **Running at:** http://localhost:3000
 
-## Recent Update (October 28, 2025 - Internationalization)
+## Recent Update (October 30, 2025 - Russian Copy Polish & Visual Refinement)
+
+### Russian Hero Section Copy Update
+- **Headline:** Updated to "Подтвердите французский для экзаменов и иммиграции" (shorter, more goal-oriented phrasing)
+- **Subheadline:** Updated to "1-на-1 с официальным экзаменатором." (explicit authority)
+- **Bullets:** Refined for clarity and parallelism:
+  - "Сдача DELF/DALF/TEF" (TEF added back for migration anchor)
+  - "70% говорите вы" (active voice, learner-focused)
+  - "Прогресс каждые 2 недели" (clearer phrasing)
+
+### Visual Design Update
+- **Removed gradient:** Hero title highlight now uses solid dark color (#253142 / citron[700]) instead of gradient
+- **Improved contrast:** Darker solid color provides better visibility against white background
+- **Cleaner aesthetics:** Simpler styling aligns with professional landing page standards
+
+---
+
+## Previous Update (October 28, 2025 - Internationalization)
 
 ### Full Internationalization Implementation
 
@@ -159,7 +176,7 @@
 ### `/app`
 - `page.tsx` - Main landing page (Hero → Benefits → Testimonials → How It Works → Profile → FAQ → Final CTA)
 - `layout.tsx` - Metadata + Calendly CSS + LanguageProvider wrapper + LanguageToggle
-- `globals.css` - Tailwind v4 import, text-gradient-citron utility, Radix animations
+- `globals.css` - Tailwind v4 import, text-gradient-citron utility (solid color #253142 for contrast), Radix animations
 - `tailwind.config.ts` - Custom citron (50-900) and slate (50-900) colors, Radix animations
 
 ---
@@ -212,9 +229,8 @@ npm run dev
 - **text.primary/secondary/tertiary**: All text colors
 - **border.light/medium**: All borders
 
-### 2. `/app/globals.css` - Text gradient only
-- `.text-gradient-citron`: Hero section title highlight gradient
-- Uses 2 colors from citron palette (500 and 400)
+### 2. `/app/globals.css` - Text highlight only
+- `.text-gradient-citron`: Hero section title highlight (solid dark color #253142 / citron[700] for contrast)
 
 **That's it.** Change colors in these 2 files and the entire site updates automatically.
 
@@ -248,11 +264,11 @@ npm run dev
 - `theme.colors.border.light` - Navy-100 (#e8eaed)
 - `theme.colors.border.medium` - Navy-200 (#d1d5db)
 
-**Text Gradient (from `globals.css`):**
-- `.text-gradient-citron` - Navy gradient (#3d5170 → #5a6f8f)
+**Text Highlight (from `globals.css`):**
+- `.text-gradient-citron` - Solid dark navy (#253142 / citron[700]) for better contrast
 
 ### Typography
-- H1: 3xl → 5xl (bold, citron gradient accent)
+- H1: 3xl → 5xl (bold, dark navy highlight accent)
 - H2: 3xl → 4xl (bold, `theme.colors.text.primary`)
 - Body: base → lg (`theme.colors.text.secondary`)
 - Font: Geist Sans

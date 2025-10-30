@@ -58,7 +58,7 @@ export default function HeroSection() {
               style={{ color: theme.colors.text.primary, maxWidth: '500px' }}
             >
               {t.hero.title.prefix}{' '}
-              <span className="text-gradient-citron">{t.hero.title.highlight}</span>
+              <span style={{ color: theme.colors.citron[400] }}>{t.hero.title.highlight}</span>
             </h1>
             
             {/* Subheadline */}

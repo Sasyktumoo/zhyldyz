@@ -5,16 +5,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Hero gradient background - removed, using Tailwind utilities instead */
-
-/* Text gradient for headings */
-.text-gradient-citron {
-  background: linear-gradient(135deg, #3d5170 0%, #5a6f8f 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 /* Radix Accordion animations */
 @keyframes slideDown {
   from {
