@@ -4,14 +4,15 @@
     "description": "Master French with one-on-one tutoring. Book your free trial lesson today."
   },
   "hero": {
-    "title": "Pass DELF/DALF confidently — with an official examiner",
-    "subtitle": "1-on-1 personalized: plan for your upcoming session, practice and assessment like the real exam.",
+    "title": "Pass DELF/DALF with an official examiner",
+    "subtitle": "1-on-1. Plan to your nearest date. Practice like the real exam.",
     "bullets": [
-      "Mock exams graded with DELF/DALF criteria",
-      "70% of lesson — you speak: train your oral skills to confidence",
-      "Score measurement every 14 days and plan adjustment"
+      "Mock exams and error analysis",
+      "70% of lesson you speak",
+      "Progress check every 2 weeks"
     ],
-    "cta": "Book a 45-min trial → get your 90-day plan",
+    "cta": "I want the FREE trial lesson",
+
     "stats": [
       "300+ adults coached",
       "Official DELF/DALF & TEF examiner",
@@ -22,50 +23,50 @@
     "altText": "French tutor profile"
   },
   "benefits": {
-    "title": "What You'll Achieve",
-    "cta": "Book a short call—we'll build the fastest route to your goal and nearest exam date.",
+    "title": "Your Result",
+    "cta": "Not sure? Let's talk—I'll find the fastest path to your goal.",
     "items": [
       {
-        "title": "Pass DELF/DALF: Full Course",
-        "description": "Plan for your upcoming session, mock exams with criteria-based grading, error correction until mastery. Score measurement every 14 days and strategy adjustment.",
+        "title": "Full Course to DELF/DALF",
+        "description": "Plan to your nearest date. Mock exams. Error analysis.",
         "badge": "Recommended"
       },
       {
-        "title": "Exam Sprint 6–12 Weeks",
-        "description": "Have the basics but falling short on points? Target weak areas (oral/written), pace training, 2 full mock exams."
+        "title": "Fast Track 6–12 Weeks",
+        "description": "Falling short on points? Strengthen weak areas. Two mock exams."
       },
       {
-        "title": "French for Life & Work (without exam)",
-        "description": "Role-play scenarios for your needs: emails, calls, interviews, project vocabulary. Goal—confident speech and comfort in real communication."
+        "title": "French for Yourself",
+        "description": "Work, travel, life. Speak freely."
       }
     ]
   },
   "testimonials": {
     "title": "What Students Say",
-    "cta": "Book Your Trial Lesson",
+    "cta": "I want the FREE trial lesson",
     "results": [
-      "A2 → B1 in 4 months",
-      "DELF B2: 14/25 → 23/25",
-      "TEF targets in 8-12 weeks"
+      "B1 → B2 in 3–4 months",
+      "8-week sprint",
+      "For work and life"
     ],
     "items": [
       {
-        "name": "M.",
-        "role": "master's student in France",
-        "headline": "A2 → B1 in four months",
-        "text": "Started at A2; four months later I passed the exam and can argue my point at B1. The talk-first lessons and weekly writing briefs finally made French stick."
-      },
-      {
-        "name": "A.",
-        "role": "graduate student in USA",
-        "headline": "From anxious to fluent conversations",
-        "text": "I always froze. With role-plays and \"say-it-better\" loops, the fear disappeared. I now handle calls at work without switching to English."
-      },
-      {
-        "name": "J.",
+        "name": "Daniel",
         "role": "Cambridge student",
-        "headline": "TEF Canada: targets achieved",
-        "text": "Clear templates, pacing drills, and constant feedback. Hit my CLB targets and moved forward with my application."
+        "headline": "DELF B2 — passed on first try",
+        "text": "Came three months before the exam: my writing was 12/25, I panicked during speaking. Every two weeks we did a \"rehearsal,\" analyzed typical mistakes. Zhyldyz gave me a simple writing structure—intro → two arguments → conclusion—and we drilled it to automaticity. On exam day I was calm: writing came out 20/25, overall score passed the threshold. I spoke confidently for the first time, without escaping to English."
+      },
+      {
+        "name": "Alina",
+        "role": "master's student in France",
+        "headline": "Needed three points — got them in 8 weeks",
+        "text": "My speaking was weak: I got lost and spoke too long. In lessons I spoke 70% of the time—short and structured: thesis → example → conclusion. A week before the date we did a full rehearsal, Zhyldyz showed where I \"ate\" endings and dragged pauses. On the exam I got a similar topic—gained +4 points and closed B2."
+      },
+      {
+        "name": "Marina",
+        "role": "marketing intern",
+        "headline": "Started speaking professionally without stress",
+        "text": "Moved for an internship and was scared of calls. We practiced real-life scenes: call the bank, write a colleague, clarify at reception. Between lessons—small voice tasks 5–10 minutes, and Zhyldyz responded with corrections. After a month I handled issues at the office and on trips—calmly and without panic."
       }
     ]
   },
@@ -73,21 +74,21 @@
     "title": "How We Work Together",
     "steps": [
       {
-        "title": "Start: Introduction and Plan",
+        "title": "Introduction and Plan",
         "description": "We connect, I learn your goal and timeline.\nI understand what's working and what needs attention.\nI create a clear week-by-week plan and give you first simple tasks."
       },
       {
-        "title": "Lessons: You Speak More",
+        "title": "You Speak More",
         "description": "In class, you speak about 70% of the time.\nWe take topics from your life and practice answering concisely and directly, like in the real exam.\nI gently correct and provide ready phrases to sound confident."
       },
       {
-        "title": "Practice Between Lessons and Visible Progress",
+        "title": "Visible Progress",
         "description": "Small 5–10 minute tasks on non-lesson days.\nYou send voice notes—I respond and correct.\nEvery 2 weeks we review before/after: you hear how your speech becomes more fluent."
       }
     ]
   },
   "profile": {
-    "title": "Certified Expertise. Proven Results.",
+    "title": "Certified Expertise.",
     "subtitle": "Official examiner credentials with measurable student outcomes",
     "stats": [
       {
@@ -165,7 +166,7 @@
   "finalCTA": {
     "title": "Book a 45-min trial lesson",
     "description": "Walk away with your 90-day plan, first practice drills, and a clear path to your target score or conversation goal.",
-    "button": "Book Your Trial Now"
+    "button": "I want the FREE trial lesson"
   }
 }
 

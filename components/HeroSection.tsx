@@ -83,11 +83,17 @@ export default function HeroSection() {
                 </div>
               ))}
             </div>
-            <div className="flex justify-center md:justify-start">
+            <div className="flex flex-col items-center md:items-start gap-2">
               <Button onClick={handleBookTrial} className="group w-full sm:w-auto">
                 {t.hero.cta}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
+              <p 
+                className="text-xs sm:text-sm"
+                style={{ color: theme.colors.text.secondary }}
+              >
+               
+              </p>
             </div>
             
             {/* 3-stat bar */}
@@ -115,10 +121,10 @@ export default function HeroSection() {
           
           {/* Right side - Profile image (2 columns) */}
           <div className="md:col-span-2 flex justify-center md:justify-end mt-8 md:mt-0">
-            <div className="relative w-full max-w-[320px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[485px]">
+            <div className="relative w-full max-w-[320px] sm:max-w-[380px] md:max-w-[580px] lg:max-w-[700px]">
               {/* Shadow layer - offset to right and down */}
               <div 
-                className="absolute inset-0 rounded-3xl translate-x-4 translate-y-4 sm:translate-x-6 sm:translate-y-6"
+                className="absolute inset-0 rounded-3xl translate-x-4 translate-y-4 sm:translate-x-6 sm:translate-y-6 md:h-[550px] lg:h-[620px]"
                 style={{ 
                   backgroundColor: theme.colors.citron[300],
                   opacity: 0.8,
@@ -127,7 +133,7 @@ export default function HeroSection() {
               ></div>
               
               {/* Photo container - responsive size */}
-              <div className="relative w-full aspect-square rounded-3xl overflow-visible z-10">
+              <div className="relative w-full aspect-square md:aspect-auto md:h-[550px] lg:h-[620px] rounded-3xl overflow-visible z-10">
                 <img
                   src={getAssetPath('/images/profile.jpg')}
                   alt={t.hero.altText}

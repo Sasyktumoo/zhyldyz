@@ -14,7 +14,12 @@
 - All text in `/locales/en.json` and `/locales/ru.json`
 - Language toggle in top-right corner
 - All components use `useLanguage()` hook
-- **Updated (Nov 3, 2025)**: Hero title structure changed from object to simple string, Benefits cards now include optional badge field
+- **Default language: Russian (RU)**
+- **Updated (Nov 3, 2025)**: 
+  - Hero: Simplified title, shorter bullets, new CTA text with subtext field
+  - Benefits: Renamed to "Your Result" / "Ваш результат", shorter card descriptions
+  - How It Works: Multi-line descriptions, shortened titles
+  - Testimonials: Updated with real student stories (DELF/DALF full course, 8-week sprint, work/life French), results chips changed to "B1 → B2 за 3–4 месяца · Спринт 8 недель · Для работы и жизни"
 
 ### Theme System
 - Centralized in `lib/theme.ts` - single source of truth
@@ -37,10 +42,10 @@
 
 ### `/components`
 - `LanguageToggle.tsx` - EN/RU switcher
-- `HeroSection.tsx` - 5-column grid, stats bar, examiner badge (updated: simple title string)
+- `HeroSection.tsx` - 5-column grid, stats bar, examiner badge (updated: CTA with subtext)
 - `ProfileSection.tsx` - Instructor credentials (stats, certificates, experience)
-- `BenefitsSection.tsx` - 3 benefit cards (updated: optional badge support)
-- `HowItWorksSection.tsx` - 3 process steps (updated: multi-line descriptions, icons: ClipboardCheck, MessageSquare, TrendingUp)
+- `BenefitsSection.tsx` - 3 benefit cards (updated: optional badge, shorter descriptions)
+- `HowItWorksSection.tsx` - 3 process steps (updated: multi-line descriptions, shortened titles)
 - `TestimonialsSection.tsx` - Results stats bar + 3 testimonial cards
 - `FAQSection.tsx` - Radix accordion
 - `FinalCTASection.tsx` - CTA with Calendly integration
