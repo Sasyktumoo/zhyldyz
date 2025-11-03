@@ -5,7 +5,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/zhyldyz' : '',
+  // No basePath needed for custom domain (frenchwithzhyldyz.online)
+  // basePath: process.env.NODE_ENV === 'production' ? '/zhyldyz' : '',
 };
 
 export default nextConfig;
