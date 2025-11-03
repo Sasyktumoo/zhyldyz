@@ -50,10 +50,6 @@ export const theme = {
       medium: '#d1d5db',       // navy-200
     }
   },
-  // Spacing - SINGLE SOURCE OF TRUTH for all section padding
-  spacing: {
-    sectionPaddingX: '15rem',  // 192px - change this ONE value to update ALL sections
-  },
   // Shadow - solid colored shadow like photo
   shadow: {
     offset: {
