@@ -40,30 +40,28 @@ export default function FinalCTASection() {
 
   return (
     <section 
-      className="py-20"
+      className="py-12 px-4 md:py-20 md:px-8"
       style={{ 
-        background: theme.colors.background.universal,
-        paddingLeft: theme.spacing.sectionPaddingX,
-        paddingRight: theme.spacing.sectionPaddingX
+        background: theme.colors.background.universal
       }}
     >
       <div className="max-w-4xl mx-auto text-center">
         <h2 
-          className="text-3xl md:text-4xl font-bold tracking-tight mb-6"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-4 md:mb-6"
           style={{ color: theme.colors.text.primary }}
         >
           {t.finalCTA.title}
         </h2>
         <p 
-          className="text-lg mb-10 max-w-2xl mx-auto leading-relaxed"
+          className="text-sm sm:text-base md:text-lg mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed px-4"
           style={{ color: theme.colors.text.secondary }}
         >
           {t.finalCTA.description}
         </p>
-        <Button onClick={handleBookTrial} size="lg" className="group">
+        <Button onClick={handleBookTrial} size="lg" className="group w-full sm:w-auto">
           {t.finalCTA.button}
           <ArrowRight 
-            className="w-6 h-6 group-hover:translate-x-1 transition-transform"
+            className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform"
             style={{ color: theme.colors.text.white }}
           />
         </Button>

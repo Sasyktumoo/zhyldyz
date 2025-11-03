@@ -4,15 +4,12 @@
     "description": "Master French with one-on-one tutoring. Book your free trial lesson today."
   },
   "hero": {
-    "title": {
-      "prefix": "Prove your French",
-      "highlight": "for exams and migration"
-    },
-    "subtitle": "Official examiner–led 1:1 for adults.",
+    "title": "Pass DELF/DALF confidently — with an official examiner",
+    "subtitle": "1-on-1 personalized: plan for your upcoming session, practice and assessment like the real exam.",
     "bullets": [
-      "Pass DELF/DALF",
-      "70% speaking, talk-first",
-      "Proof every 2 weeks"
+      "Mock exams graded with DELF/DALF criteria",
+      "70% of lesson — you speak: train your oral skills to confidence",
+      "Score measurement every 14 days and plan adjustment"
     ],
     "cta": "Book a 45-min trial → get your 90-day plan",
     "stats": [
@@ -26,30 +23,37 @@
   },
   "benefits": {
     "title": "What You'll Achieve",
-    "cta": "Unsure which track? Book a free call—I'll map the fastest route to your goal.",
+    "cta": "Book a short call—we'll build the fastest route to your goal and nearest exam date.",
     "items": [
       {
-        "title": "Pass your exam (DELF/DALF)",
-        "description": "Clear roadmap, examiner-level drills, mock exams with scoring."
+        "title": "Pass DELF/DALF: Full Course",
+        "description": "Plan for your upcoming session, mock exams with criteria-based grading, error correction until mastery. Score measurement every 14 days and strategy adjustment.",
+        "badge": "Recommended"
       },
       {
-        "title": "Qualify for migration (TEF Canada)",
-        "description": "CLB-target plan, pacing drills, templates for writing & orals."
+        "title": "Exam Sprint 6–12 Weeks",
+        "description": "Have the basics but falling short on points? Target weak areas (oral/written), pace training, 2 full mock exams."
       },
       {
-        "title": "Use French at work",
-        "description": "Emails, calls, interviews—role-plays from your real scenarios."
+        "title": "French for Life & Work (without exam)",
+        "description": "Role-play scenarios for your needs: emails, calls, interviews, project vocabulary. Goal—confident speech and comfort in real communication."
       }
     ]
   },
   "testimonials": {
     "title": "What Students Say",
+    "cta": "Book Your Trial Lesson",
+    "results": [
+      "A2 → B1 in 4 months",
+      "DELF B2: 14/25 → 23/25",
+      "TEF targets in 8-12 weeks"
+    ],
     "items": [
       {
         "name": "M.",
         "role": "master's student in France",
-        "headline": "A2 → B2 in four months",
-        "text": "Started at A2; four months later I passed the exam and can argue my point at B2. The talk-first lessons and weekly writing briefs finally made French stick."
+        "headline": "A2 → B1 in four months",
+        "text": "Started at A2; four months later I passed the exam and can argue my point at B1. The talk-first lessons and weekly writing briefs finally made French stick."
       },
       {
         "name": "A.",
@@ -66,19 +70,19 @@
     ]
   },
   "howItWorks": {
-    "title": "How Your Training Works",
+    "title": "How We Work Together",
     "steps": [
       {
-        "title": "Diagnostic Plan",
-        "description": "Baseline speaking + targeted checklist → CEFR-aligned plan for your exact goal (exam / career / migration)."
+        "title": "Start: Introduction and Plan",
+        "description": "We connect, I learn your goal and timeline.\nI understand what's working and what needs attention.\nI create a clear week-by-week plan and give you first simple tasks."
       },
       {
-        "title": "Talk-First Lessons",
-        "description": "~70% you speaking; role-plays from your life; live \"say-it-better\" loops; micro-drills that fix your errors."
+        "title": "Lessons: You Speak More",
+        "description": "In class, you speak about 70% of the time.\nWe take topics from your life and practice answering concisely and directly, like in the real exam.\nI gently correct and provide ready phrases to sound confident."
       },
       {
-        "title": "Practice & Proof",
-        "description": "5–10 min tasks between lessons, voice-note feedback, and progress checkpoints at 30/60/90 days with before/after audio."
+        "title": "Practice Between Lessons and Visible Progress",
+        "description": "Small 5–10 minute tasks on non-lesson days.\nYou send voice notes—I respond and correct.\nEvery 2 weeks we review before/after: you hear how your speech becomes more fluent."
       }
     ]
   },
@@ -95,7 +99,7 @@
         "label": "Years Experience"
       },
       {
-        "number": "3",
+        "number": "9+",
         "label": "Official Certifications"
       }
     ],
@@ -126,15 +130,6 @@
       "title": "Former Director, Alliance Française Bishkek",
       "description": "Leadership role (2015) in francophone education standards and network",
       "detail": "10+ years teaching at universities, international schools, and Alliance Française"
-    },
-    "outcomes": {
-      "title": "Real Student Outcomes",
-      "results": [
-        "A2 → B1 in 4 months",
-        "DELF B2: 14/25 → 20/25",
-        "TEF targets in 8-12 weeks"
-      ],
-      "disclaimer": "Typical adult learner outcomes following the complete program"
     },
     "imagePlaceholder": "Certificate Image Placeholder"
   },

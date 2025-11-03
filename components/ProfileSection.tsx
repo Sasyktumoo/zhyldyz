@@ -1,6 +1,6 @@
 'use client';
 
-import { Award, CheckCircle2, Users, GraduationCap, Calendar } from 'lucide-react';
+import { Award, Users, GraduationCap, Calendar } from 'lucide-react';
 import { theme } from '@/lib/theme';
 import { useLanguage } from '@/lib/LanguageContext';
 
@@ -23,24 +23,22 @@ export default function ProfileSection() {
 
   return (
     <section 
-      className="py-20"
+      className="py-12 px-4 md:py-20 md:px-8"
       style={{ 
-        background: `linear-gradient(180deg, ${theme.colors.background.universal} 0%, ${theme.colors.primary[50]} 100%)`,
-        paddingLeft: theme.spacing.sectionPaddingX,
-        paddingRight: theme.spacing.sectionPaddingX
+        background: `linear-gradient(180deg, ${theme.colors.background.universal} 0%, ${theme.colors.primary[50]} 100%)`
       }}
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 md:mb-12">
           <h2 
-            className="text-4xl md:text-5xl font-bold tracking-tight mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-3 md:mb-4"
             style={{ color: theme.colors.text.primary }}
           >
             {t.profile.title}
           </h2>
           <p 
-            className="text-lg md:text-xl max-w-3xl mx-auto"
+            className="text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto px-4"
             style={{ color: theme.colors.text.secondary }}
           >
             {t.profile.subtitle}
@@ -48,7 +46,7 @@ export default function ProfileSection() {
         </div>
 
         {/* Stats Row */}
-        <div className="grid grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-10 md:mb-16">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
@@ -56,20 +54,20 @@ export default function ProfileSection() {
                 key={index}
                 className="text-center"
               >
-                <div className="flex justify-center mb-3">
+                <div className="flex justify-center mb-2 md:mb-3">
                   <Icon 
-                    className="w-8 h-8" 
+                    className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" 
                     style={{ color: theme.colors.citron[500] }} 
                   />
                 </div>
                 <div 
-                  className="text-4xl font-bold mb-1"
+                  className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-1"
                   style={{ color: theme.colors.text.primary }}
                 >
                   {stat.number}
                 </div>
                 <div 
-                  className="text-sm font-medium"
+                  className="text-xs sm:text-sm font-medium px-1"
                   style={{ color: theme.colors.text.secondary }}
                 >
                   {stat.label}
@@ -80,64 +78,78 @@ export default function ProfileSection() {
         </div>
 
         {/* Certificate Grid - Image Placeholders */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-10 md:mb-12">
           {certificates.map((cert) => (
             <div
               key={cert.id}
-              className="group relative rounded-2xl overflow-hidden transition-all duration-300"
+              className="group relative rounded-lg overflow-hidden transition-all duration-300"
               style={{ 
                 backgroundColor: theme.colors.background.card,
-                borderWidth: '1px',
-                borderColor: theme.colors.border.light,
-                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
+                boxShadow: '0 8px 16px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08)',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-8px)';
-                e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.1)';
+                e.currentTarget.style.boxShadow = '0 24px 48px rgba(0, 0, 0, 0.18), 0 4px 8px rgba(0, 0, 0, 0.12)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.05)';
+                e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08)';
               }}
             >
-              {/* Certificate Image */}
+              {/* Certificate Image with Frame */}
               <div 
-                className="relative w-full aspect-[4/3] overflow-hidden"
-                style={{ backgroundColor: theme.colors.primary[50] }}
+                className="relative w-full aspect-[4/3] p-4"
+                style={{ 
+                  backgroundColor: theme.colors.citron[600],
+                }}
               >
-                <img
-                  src={cert.imagePath}
-                  alt={cert.title}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    // Show placeholder if image fails to load
-                    const target = e.currentTarget;
-                    target.style.display = 'none';
-                    const placeholder = target.nextElementSibling as HTMLElement;
-                    if (placeholder) placeholder.style.display = 'flex';
-                  }}
-                />
-                {/* Fallback placeholder - only shown if image fails to load */}
+                {/* Inner white matting */}
                 <div 
-                  className="w-full h-full absolute inset-0 flex items-center justify-center text-center p-8"
-                  style={{ 
-                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                    display: 'none',
+                  className="relative w-full h-full overflow-hidden"
+                  style={{
+                    backgroundColor: theme.colors.background.card,
+                    padding: '12px',
+                    boxShadow: 'inset 0 2px 8px rgba(0, 0, 0, 0.15)',
                   }}
                 >
-                  <div>
-                    <Award 
-                      className="w-16 h-16 mx-auto mb-3" 
-                      style={{ color: theme.colors.citron[400] }} 
-                    />
-                    <p 
-                      className="text-xs font-medium"
-                      style={{ color: theme.colors.text.tertiary }}
-                    >
-                      {t.profile.imagePlaceholder}
-                      <br />
-                      <span className="text-xs">Replace: {cert.imagePath}</span>
-                    </p>
+                  <img
+                    src={cert.imagePath}
+                    alt={cert.title}
+                    className="w-full h-full object-cover"
+                    style={{
+                      boxShadow: '0 1px 3px rgba(0, 0, 0, 0.2)',
+                    }}
+                    onError={(e) => {
+                      // Show placeholder if image fails to load
+                      const target = e.currentTarget;
+                      target.style.display = 'none';
+                      const placeholder = target.nextElementSibling as HTMLElement;
+                      if (placeholder) placeholder.style.display = 'flex';
+                    }}
+                  />
+                  {/* Fallback placeholder - only shown if image fails to load */}
+                  <div 
+                    className="w-full h-full absolute inset-0 flex items-center justify-center text-center"
+                    style={{ 
+                      backgroundColor: theme.colors.primary[50],
+                      display: 'none',
+                      margin: '12px',
+                    }}
+                  >
+                    <div>
+                      <Award 
+                        className="w-16 h-16 mx-auto mb-3" 
+                        style={{ color: theme.colors.citron[400] }} 
+                      />
+                      <p 
+                        className="text-xs font-medium"
+                        style={{ color: theme.colors.text.tertiary }}
+                      >
+                        {t.profile.imagePlaceholder}
+                        <br />
+                        <span className="text-xs">Replace: {cert.imagePath}</span>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -181,91 +193,45 @@ export default function ProfileSection() {
 
         {/* Additional Context - Former Director */}
         <div 
-          className="rounded-2xl p-8 mb-12"
+          className="rounded-xl md:rounded-2xl p-6 sm:p-8 md:p-10 text-center max-w-4xl mx-auto"
           style={{ 
-            backgroundColor: theme.colors.primary[50],
+            backgroundColor: theme.colors.background.card,
             borderWidth: '2px',
-            borderColor: theme.colors.border.light,
+            borderColor: theme.colors.citron[400],
+            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)',
           }}
         >
-          <div className="flex items-start gap-6">
+          <div className="flex justify-center mb-4 md:mb-5">
             <div 
-              className="p-4 rounded-xl flex-shrink-0"
-              style={{ backgroundColor: theme.colors.citron[100] }}
+              className="p-3 md:p-4 rounded-full"
+              style={{ 
+                backgroundColor: theme.colors.citron[50],
+              }}
             >
               <GraduationCap 
-                className="w-10 h-10" 
-                style={{ color: theme.colors.citron[600] }} 
+                className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" 
+                style={{ color: theme.colors.citron[500] }} 
               />
             </div>
-            <div>
-              <h3 
-                className="text-2xl font-bold mb-2"
-                style={{ color: theme.colors.text.primary }}
-              >
-                {t.profile.experience.title}
-              </h3>
-              <p 
-                className="text-base mb-3"
-                style={{ color: theme.colors.text.secondary }}
-              >
-                {t.profile.experience.description}
-              </p>
-              <div 
-                className="text-sm"
-                style={{ color: theme.colors.text.tertiary }}
-              >
-                {t.profile.experience.detail}
-              </div>
-            </div>
           </div>
-        </div>
-
-        {/* Student Results Banner */}
-        <div 
-          className="rounded-2xl p-8 text-center"
-          style={{ 
-            background: `linear-gradient(135deg, ${theme.colors.citron[50]} 0%, ${theme.colors.citron[100]} 100%)`,
-            borderWidth: '2px',
-            borderColor: theme.colors.citron[300],
-          }}
-        >
           <h3 
-            className="text-2xl font-bold mb-6"
+            className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 md:mb-3"
             style={{ color: theme.colors.text.primary }}
           >
-            {t.profile.outcomes.title}
+            {t.profile.experience.title}
           </h3>
-          <div className="flex flex-wrap justify-center gap-6">
-            {t.profile.outcomes.results.map((result, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-3 px-6 py-3 rounded-xl"
-                style={{ 
-                  backgroundColor: theme.colors.background.card,
-                  borderWidth: '1px',
-                  borderColor: theme.colors.citron[300],
-                }}
-              >
-                <CheckCircle2 
-                  className="w-5 h-5 flex-shrink-0" 
-                  style={{ color: theme.colors.citron[600] }} 
-                />
-                <span 
-                  className="font-semibold text-sm"
-                  style={{ color: theme.colors.text.secondary }}
-                >
-                  {result}
-                </span>
-              </div>
-            ))}
-          </div>
           <p 
-            className="text-xs italic mt-4"
+            className="text-sm sm:text-base md:text-lg mb-2"
+            style={{ color: theme.colors.text.secondary }}
+          >
+            {t.profile.experience.description}
+          </p>
+          <div 
+            className="text-xs sm:text-sm md:text-base"
             style={{ color: theme.colors.text.tertiary }}
           >
-            {t.profile.outcomes.disclaimer}
-          </p>
+            {t.profile.experience.detail}
+          </div>
         </div>
       </div>
     </section>

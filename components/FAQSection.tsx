@@ -9,21 +9,19 @@ export default function FAQSection() {
   const { t } = useLanguage();
   return (
     <section 
-      className="py-16"
+      className="py-12 px-4 md:py-16 md:px-8"
       style={{ 
-        background: theme.colors.background.universal,
-        paddingLeft: theme.spacing.sectionPaddingX,
-        paddingRight: theme.spacing.sectionPaddingX
+        background: theme.colors.background.universal
       }}
     >
       <div className="max-w-3xl mx-auto">
         <h2 
-          className="text-3xl md:text-4xl font-bold tracking-tight text-center mb-12"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-center mb-8 md:mb-12"
           style={{ color: theme.colors.text.primary }}
         >
           {t.faq.title}
         </h2>
-        <Accordion.Root type="single" collapsible className="space-y-4">
+        <Accordion.Root type="single" collapsible className="space-y-3 md:space-y-4">
           {t.faq.items.map((faq, index) => (
             <Accordion.Item
               key={index}
@@ -36,7 +34,7 @@ export default function FAQSection() {
               }}
             >
               <Accordion.Trigger 
-                className="flex justify-between items-center w-full px-6 py-4 text-left transition-colors duration-200 group data-[state=open]:bg-citron-50"
+                className="flex justify-between items-center w-full px-4 py-3 sm:px-5 sm:py-3.5 md:px-6 md:py-4 text-left transition-colors duration-200 group data-[state=open]:bg-citron-50"
                 style={{
                   '--hover-bg': theme.colors.citron[50]
                 } as React.CSSProperties}
@@ -52,7 +50,7 @@ export default function FAQSection() {
                 }}
               >
                 <span 
-                  className="font-semibold pr-4"
+                  className="font-semibold text-sm sm:text-base pr-3 sm:pr-4"
                   style={{ 
                     color: theme.colors.text.primary
                   }}
@@ -60,12 +58,12 @@ export default function FAQSection() {
                   {faq.question}
                 </span>
                 <ChevronDown 
-                  className="w-5 h-5 transition-transform duration-200 group-data-[state=open]:rotate-180 flex-shrink-0" 
+                  className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-200 group-data-[state=open]:rotate-180 flex-shrink-0" 
                   style={{ color: theme.colors.citron[500] }}
                 />
               </Accordion.Trigger>
               <Accordion.Content 
-                className="px-6 py-4 leading-relaxed data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp"
+                className="px-4 py-3 sm:px-5 sm:py-3.5 md:px-6 md:py-4 text-sm sm:text-base leading-relaxed data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp"
                 style={{ 
                   color: theme.colors.text.secondary,
                   backgroundColor: `${theme.colors.citron[50]}4D` // 30% opacity

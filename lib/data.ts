@@ -35,8 +35,8 @@ export const testimonials: Testimonial[] = [
     id: 'testimonial-1',
     name: 'M.',
     role: 'university student',
-    headline: 'A2 → B2 in four months',
-    text: 'Started at A2; four months later I passed the exam and can argue my point at B2. The talk-first lessons and weekly writing briefs finally made French stick.',
+    headline: 'A2 → 1 in four months',
+    text: 'Started at A2; four months later I passed the exam and can argue my point at B1. The talk-first lessons and weekly writing briefs finally made French stick.',
     rating: 5,
   },
   {

@@ -42,43 +42,40 @@ export default function HeroSection() {
   return (
     <section 
       id="hero" 
-      className="min-h-screen flex items-center justify-center py-16 md:py-20"
+      className="min-h-screen flex items-center justify-center py-12 px-4 md:py-20 md:px-8"
       style={{ 
-        background: theme.colors.background.universal,
-        paddingLeft: theme.spacing.sectionPaddingX,
-        paddingRight: theme.spacing.sectionPaddingX
+        background: theme.colors.background.universal
       }}
     >
       <div className="max-w-6xl mx-auto w-full">
-        <div className="grid md:grid-cols-5 gap-12 md:gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-16 items-center">
           {/* Left side - Text content (3 columns) */}
-          <div className="md:col-span-3 text-center md:text-left space-y-8">
+          <div className="md:col-span-3 text-center md:text-left space-y-6 md:space-y-8">
             <h1 
-              className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight mx-auto md:mx-0"
               style={{ color: theme.colors.text.primary, maxWidth: '500px' }}
             >
-              {t.hero.title.prefix}{' '}
-              <span style={{ color: theme.colors.citron[400] }}>{t.hero.title.highlight}</span>
+              {t.hero.title}
             </h1>
             
             {/* Subheadline */}
             <p 
-              className="text-base md:text-lg leading-relaxed"
+              className="text-sm sm:text-base md:text-lg leading-relaxed mx-auto md:mx-0"
               style={{ color: theme.colors.text.secondary, maxWidth: '500px' }}
             >
               {t.hero.subtitle}
             </p>
             
             {/* Three bullets with check icons */}
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
               {t.hero.bullets.map((bullet: string, index: number) => (
-                <div key={index} className="flex items-center gap-3">
+                <div key={index} className="flex items-center justify-center md:justify-start gap-3">
                   <Check 
-                    className="w-5 h-5 flex-shrink-0" 
+                    className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" 
                     style={{ color: theme.colors.citron[500] }} 
                   />
                   <span 
-                    className="text-base md:text-lg"
+                    className="text-sm sm:text-base md:text-lg text-left"
                     style={{ color: theme.colors.text.secondary }}
                   >
                     {bullet}
@@ -86,8 +83,8 @@ export default function HeroSection() {
                 </div>
               ))}
             </div>
-            <div>
-              <Button onClick={handleBookTrial} className="group">
+            <div className="flex justify-center md:justify-start">
+              <Button onClick={handleBookTrial} className="group w-full sm:w-auto">
                 {t.hero.cta}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
@@ -95,12 +92,12 @@ export default function HeroSection() {
             
             {/* 3-stat bar */}
             <div 
-              className="flex flex-wrap justify-center md:justify-start gap-4 items-center text-sm"
+              className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4 items-center text-xs sm:text-sm"
               style={{ color: theme.colors.text.secondary }}
             >
               {/* Stat 1: 300+ adults coached */}
               <div className="flex items-center gap-2">
-                <Users className="w-4 h-4" style={{ color: theme.colors.citron[500] }} />
+                <Users className="w-3 h-3 sm:w-4 sm:h-4" style={{ color: theme.colors.citron[500] }} />
                 <span><span className="font-bold">{t.hero.stats[0].split(' ')[0]}</span> {t.hero.stats[0].split(' ').slice(1).join(' ')}</span>
               </div>
               
@@ -110,18 +107,18 @@ export default function HeroSection() {
               
               {/* Stat 3: Former Director */}
               <div className="flex items-center gap-2">
-                <Building2 className="w-4 h-4" style={{ color: theme.colors.citron[500] }} />
+                <Building2 className="w-3 h-3 sm:w-4 sm:h-4" style={{ color: theme.colors.citron[500] }} />
                 <span className="font-bold">{t.hero.stats[2]}</span>
               </div>
             </div>
           </div>
           
           {/* Right side - Profile image (2 columns) */}
-          <div className="md:col-span-2 flex justify-center md:justify-end">
-            <div className="relative">
+          <div className="md:col-span-2 flex justify-center md:justify-end mt-8 md:mt-0">
+            <div className="relative w-full max-w-[320px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[485px]">
               {/* Shadow layer - offset to right and down */}
               <div 
-                className="absolute inset-0 rounded-3xl translate-x-6 translate-y-6"
+                className="absolute inset-0 rounded-3xl translate-x-4 translate-y-4 sm:translate-x-6 sm:translate-y-6"
                 style={{ 
                   backgroundColor: theme.colors.citron[300],
                   opacity: 0.8,
@@ -129,8 +126,8 @@ export default function HeroSection() {
                 }}
               ></div>
               
-              {/* Photo container - hardcoded size */}
-              <div className="relative w-[485px] h-[485px] rounded-3xl overflow-visible z-10">
+              {/* Photo container - responsive size */}
+              <div className="relative w-full aspect-square rounded-3xl overflow-visible z-10">
                 <img
                   src={getAssetPath('/images/profile.jpg')}
                   alt={t.hero.altText}
@@ -142,7 +139,7 @@ export default function HeroSection() {
                 
                 {/* Badge overlay - positioned at top left */}
                 <div 
-                  className="absolute -top-4 -left-4 rounded-xl px-4 py-2 flex items-center gap-2"
+                  className="absolute -top-2 -left-2 sm:-top-4 sm:-left-4 rounded-lg sm:rounded-xl px-2 py-1.5 sm:px-4 sm:py-2 flex items-center gap-1.5 sm:gap-2"
                   style={{ 
                     backgroundColor: theme.colors.background.card,
                     borderWidth: '2px',
@@ -151,9 +148,9 @@ export default function HeroSection() {
                     zIndex: 30
                   }}
                 >
-                  <Award className="w-5 h-5" style={{ color: theme.colors.citron[500] }} />
+                  <Award className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: theme.colors.citron[500] }} />
                   <p 
-                    className="text-sm font-bold whitespace-nowrap"
+                    className="text-xs sm:text-sm font-bold whitespace-nowrap"
                     style={{ color: theme.colors.text.primary }}
                   >
                     {t.hero.badge}
@@ -162,7 +159,7 @@ export default function HeroSection() {
                 
                 {/* Google Review Badge - positioned to extend outside at bottom right */}
                 <div 
-                  className="absolute -bottom-6 -right-6 rounded-2xl p-4 flex flex-col items-center gap-2"
+                  className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 rounded-xl sm:rounded-2xl p-2.5 sm:p-4 flex flex-col items-center gap-1.5 sm:gap-2"
                   style={{ 
                     backgroundColor: theme.colors.background.card,
                     borderWidth: '1px',
@@ -172,7 +169,7 @@ export default function HeroSection() {
                   }}
                 >
                   {/* Google Logo */}
-                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="sm:w-8 sm:h-8">
                     <path d="M29.6 16.3636C29.6 15.4182 29.5273 14.8 29.3636 14.1636H16V18.2545H23.5636C23.4182 19.3455 22.7091 21.0182 21.0909 22.1273L21.0691 22.2722L25.2545 25.5273L25.5273 25.5545C28.0727 23.2 29.6 20.1091 29.6 16.3636Z" fill="#4285F4"/>
                     <path d="M16 29C19.4182 29 22.2545 27.8909 24.2909 25.5545L21.0909 22.1273C20.1455 22.7636 18.9091 23.2182 16 23.2182C12.6727 23.2182 9.87273 20.8636 8.98182 17.7091L8.84364 17.7218L4.50909 21.0909L4.46364 21.2182C6.48182 25.2 10.8727 29 16 29Z" fill="#34A853"/>
                     <path d="M8.98182 17.7091C8.70909 16.9818 8.54545 16.2 8.54545 15.4C8.54545 14.6 8.70909 13.8182 8.96364 13.0909L8.95636 12.9364L4.56364 9.51636L4.46364 9.56364C3.63636 11.2182 3.18182 13.0545 3.18182 15.4C3.18182 17.7455 3.63636 19.5818 4.46364 21.2364L8.98182 17.7091Z" fill="#FBBC05"/>
@@ -184,7 +181,7 @@ export default function HeroSection() {
                     {[1, 2, 3, 4, 5].map((star) => (
                       <Star 
                         key={star} 
-                        className="w-5 h-5" 
+                        className="w-3.5 h-3.5 sm:w-5 sm:h-5" 
                         style={{ 
                           fill: theme.colors.accent[500], 
                           color: theme.colors.accent[500] 
@@ -195,7 +192,7 @@ export default function HeroSection() {
                   
                   {/* Rating Text */}
                   <p 
-                    className="text-sm font-semibold"
+                    className="text-xs sm:text-sm font-semibold"
                     style={{ color: theme.colors.text.primary }}
                   >
                     {t.hero.googleRating}
