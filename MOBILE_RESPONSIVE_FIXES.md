@@ -112,16 +112,27 @@ Check:
    - Desktop (1280px+)
 4. Test in actual iPhone browser for real device testing
 
-## GitHub Pages Fix (Nov 3, 2025)
+## GitHub Pages / Custom Domain Fix (Nov 3, 2025)
 
-**Issue:** Site broken on GitHub Pages but worked on localhost.
+### Issue 1: Old Build (Fixed)
+**Problem:** Site broken on GitHub Pages but worked on localhost.
+**Root Cause:** `/out` directory contained old build with hardcoded `padding-left:15rem;padding-right:15rem` (240px!).
+**Fix:** Rebuilt site, removed unused `theme.spacing.sectionPaddingX`.
 
-**Root Cause:** `/out` directory contained old static build with hardcoded `padding-left:15rem;padding-right:15rem` (240px!) from before mobile responsive fixes.
+### Issue 2: Custom Domain 404s (Fixed)
+**Problem:** All assets (CSS, JS, images, fonts) returned 404. Site looked like plain text.
+**Root Cause:** Custom domain `frenchwithzhyldyz.online` doesn't need `/zhyldyz` basePath, but `next.config.ts` had it configured:
+```
+basePath: process.env.NODE_ENV === 'production' ? '/zhyldyz' : ''
+```
+Browser tried: `https://frenchwithzhyldyz.online/zhyldyz/_next/static/...` → 404
+Should be: `https://frenchwithzhyldyz.online/_next/static/...`
 
 **Fix:**
-1. Rebuilt site: `npm run build`
-2. Removed unused `theme.spacing.sectionPaddingX` from `lib/theme.ts` (was causing confusion)
-3. Verified new build has responsive classes: `px-4 md:px-8` instead of hardcoded padding
+1. Removed basePath from `next.config.ts` (commented out)
+2. Updated `lib/utils.ts` getAssetPath to use empty basePath
+3. Rebuilt: `npm run build`
+4. Pushed to GitHub: `git push origin main`
 
-**Deploy:** Push updated `/out` directory to GitHub, wait for Actions workflow, then hard-refresh browser.
+**Note:** basePath only needed for GitHub Pages project sites (`username.github.io/project-name`). Custom domains serve from root.
 
